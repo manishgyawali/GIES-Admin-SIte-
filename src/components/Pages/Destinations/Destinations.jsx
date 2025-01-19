@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 
 const Destinations = () => {
-  const [countryData] = useState([
+  const countryData = [
     { name: "Australia", image: "/Images/australia.png" },
     { name: "Canada", image: "/Images/canada.png" },
     { name: "Germany", image: "/Images/germany.png" },
@@ -11,7 +11,7 @@ const Destinations = () => {
     { name: "Japan", image: "/Images/japan.png" },
     { name: "Korea", image: "/Images/korea.png" },
     { name: "US", image: "/Images/us.png" },
-  ]);
+  ]
 
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);

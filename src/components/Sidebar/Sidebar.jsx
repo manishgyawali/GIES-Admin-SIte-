@@ -51,7 +51,7 @@ const Sidebar = () => {
                   ? setShowDropdown(showDropdown === index ? null : index)
                   : null
               }
-              className={`flex items-center gap-4 text-gray-400 hover:text-[#415FF2] cursor-pointer ${
+              className={`flex items-center  gap-4 text-gray-400 hover:text-[#415FF2] cursor-pointer ${
                 item.subdata ? "justify-between" : ""
               }`}
             >
@@ -62,9 +62,9 @@ const Sidebar = () => {
               {item.subdata && (
                 <div>
                   {showDropdown === index ? (
-                    <MdKeyboardArrowDown className="text-xl" />
+                    <MdKeyboardArrowDown className="text-2xl" />
                   ) : (
-                    <MdKeyboardArrowRight className="text-xl" />
+                    <MdKeyboardArrowRight className="text-2xl" />
                   )}
                 </div>
               )}
@@ -72,12 +72,12 @@ const Sidebar = () => {
 
             {/* Dropdown Submenu */}
             {item.subdata && showDropdown === index && (
-              <div className="flex flex-col pl-10 mt-2 gap-2 text-gray-500">
+              <div className="flex flex-col pl-16 mt-2 gap-2 text-gray-500">
                 {item.subdata.map((subItem, subIndex) => (
                   <Link
                     key={subIndex}
                     to={subItem.path}
-                    className="hover:text-[#415FF2]"
+                    className="hover:text-[#415FF2] text-lg tracking-wider"
                   >
                     {subItem.title}
                   </Link>

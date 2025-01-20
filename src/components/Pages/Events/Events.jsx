@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoTrash, IoPencil } from "react-icons/io5";
 
 const Events = () => {
-  const [events] = useState([
+  const eventsData = [
     {
       image: "/Images/event.png",
       title: "Choosing the Right Payment Solution for Your Business",
@@ -31,7 +31,7 @@ const Events = () => {
       description:
         "Explore cutting-edge technologies and their role in driving business transformation.",
     },
-  ]);
+  ]
 
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
@@ -150,7 +150,7 @@ const Events = () => {
               </tr>
             </thead>
             <tbody>
-              {events.map((event, index) => (
+              {eventsData.map((event, index) => (
                 <tr
                   key={index}
                   className="border-b last:border-none hover:bg-gray-50"

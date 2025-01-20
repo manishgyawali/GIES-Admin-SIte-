@@ -20,6 +20,14 @@ const Sidebar = () => {
     { title: "Events", icon: <CiViewBoard />, path: "/events" },
     { title: "Articles", icon: <PiInvoiceLight />, path: "/articles" },
     { title: "Booking", icon: <PiInvoiceLight />, path: "/booking" },
+    { title: "Gallery", icon: <PiInvoiceLight />, path: "/gallery" },
+    { title: "Contact Us", icon: <PiInvoiceLight />, path: "/contactus" },
+
+    { title: "Carrer Opportunities", icon: <PiInvoiceLight />, path: "/carreropportunities" },
+
+
+    { title: "Visa Destinations", icon: <PiInvoiceLight />, path: "/visadestinations" },
+
     { title: "Frequently Asked Questions", icon: <PiInvoiceLight />, path: "/frequentlyaq" },
     {
       title: "Page Layout",

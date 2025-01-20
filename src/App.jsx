@@ -16,6 +16,10 @@ import GetSuccess from "./components/Pages/GetSuccess/GetSuccess";
 import OurTeam from "./components/Pages/OurTeam/OurTeam";
 import Testimonials from "./components/Pages/Testimonials/Testimonials";
 import Booking from "./components/Pages/Booking/Booking";
+import VisaDestination from "./components/Pages/VisaDestinations/VisaDestination";
+import Gallery from "./components/Pages/Gallery/Gallery";
+import CarrerOpportunities from "./components/Pages/CarrerOpportunities/CarrerOpportunities";
+import ContactUs from "./components/Pages/ContactUs/ContactUs";
 
 function App() {
   return (
@@ -47,6 +51,13 @@ function App() {
                 <Route path="/ourteam" element={<OurTeam />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/booking" element={<Booking />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contactus" element={<ContactUs />} />
+
+                <Route path="/carreropportunities" element={<CarrerOpportunities />} />
+
+                <Route path="/visadestinations" element={<VisaDestination />} />
+
 
 
                 <Route path="/frequentlyaq" element={<FrequentlyAQ />} />

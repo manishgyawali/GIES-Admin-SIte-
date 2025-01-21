@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Navigation from "./components/Common/Navigation/Navigation";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Destinations from "./components/Pages/Destinations/Destinations";
@@ -20,6 +19,10 @@ import VisaDestination from "./components/Pages/VisaDestinations/VisaDestination
 import Gallery from "./components/Pages/Gallery/Gallery";
 import CarrerOpportunities from "./components/Pages/CarrerOpportunities/CarrerOpportunities";
 import ContactUs from "./components/Pages/ContactUs/ContactUs";
+import ContactInquiry from "./components/Pages/ContactInquiry/ContactInquiry";
+import BookingInquiry from "./components/Pages/BookingInquiry/BookingInquiry";
+import AboutUs from "./components/Pages/AboutUs/AboutUs";
+import MessageFromCEO from "./components/Pages/MessageFromCEO/MessageFromCEO";
 
 function App() {
   return (
@@ -27,7 +30,7 @@ function App() {
       <Router>
         <div className="flex w-full h-screen">
           {/* Sidebar */}
-          <aside className="lg:w-[270px] h-full shadow-sm scroll  overflow-y-scroll">
+          <aside className="lg:w-[280px] h-full shadow-sm scroll  overflow-y-scroll">
             <Sidebar />
           </aside>
 
@@ -40,6 +43,7 @@ function App() {
             <div className="lg:flex-1 absolute  w-full  top-36 px-8 scroll overflow-scroll">
               <Routes>
               <Route path="/banner" element={<Banner />} />
+              <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/destinations" element={<Destinations />} />
                 <Route path="/whyus" element={<Whyus />} />
                 <Route path="/courses" element={<Courses />} />
@@ -53,10 +57,13 @@ function App() {
                 <Route path="/booking" element={<Booking />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contactus" element={<ContactUs />} />
-
+                <Route path="/contactinquiry" element={<ContactInquiry />} />
                 <Route path="/carreropportunities" element={<CarrerOpportunities />} />
-
                 <Route path="/visadestinations" element={<VisaDestination />} />
+                <Route path="/bookinginquiry" element={<BookingInquiry />} />
+                <Route path="/messagefromceo" element={<MessageFromCEO />} />
+
+
 
 
 

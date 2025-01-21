@@ -2,62 +2,23 @@ import React, { useState } from "react";
 import JoditEditor from "jodit-react";
 import { IoTrash, IoPencil } from "react-icons/io5";
 
-const VisaDestination = () => {
-  const visaData = [
+const MessageFromCEO = () => {
+  const messageData = [
     {
-      image: "/Images/australia.png",
-      countryvisa: "Australia Visa",
-      description:
-        "Student visas, work visas, and visitor visas for Australia. Start your journey down under!",
-
-      images: [
-        "/Images/blogimg1.png",
-        "/Images/blogimg2.png",
-        "/Images/event.png",
-      ],
-      title: "Visa For Australia",
+        title: "Message",
+        subtitle:"Message From CEO",
+        image:"/Images/message.png",
+        icon:"/Images/messageicon.png",
+        description:"  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
     },
     {
-      image: "/Images/korea.png",
-      countryvisa: "Korea Visa",
-      description:
-        "Explore the land of opportunities with student, work, and visitor visas for Korea.",
-      images: ["/Images/blogimg2.png"],
-      title: "Visa For Korea",
+        title: "Message",
+        subtitle:"Message From CEO",
+        image:"/Images/message.png",
+        icon:"/Images/messageicon.png",
+        description:"  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
     },
-    {
-      image: "/Images/germany.png",
-      countryvisa: "German Visa",
-      description:
-        "Study or work in Germany with a range of visa options suited to your needs.",
-      images: ["/Images/blogimg1.png"],
-      title: "Visa For German",
-    },
-    {
-      image: "/Images/denmark.png",
-      countryvisa: "Denmark Visa",
-      description:
-        "These services may include medical or non-medical care provided by licensed healthcare.",
-      images: ["/Images/event.png"],
-      title: "Visa For Denmark",
-    },
-    {
-      image: "/Images/canada.png",
-      countryvisa: "Canada Visa",
-      description:
-        "These services may include medical or non-medical care provided by licensed healthcare.",
-      images: ["/Images/event.png"],
-      title: "Visa For Canada",
-    },
-    {
-      image: "/Images/japan.png",
-      countryvisa: "Japan Visa",
-      description:
-        "These services may include medical or non-medical care provided by licensed healthcare.",
-      images: ["/Images/blogimg1.png"],
-      title: "Visa For Japan",
-    },
-  ];
+  ]
   const [editorContent, setEditorContent] = useState("");
 
   const [deleteIndex, setDeleteIndex] = useState(false);
@@ -74,29 +35,8 @@ const VisaDestination = () => {
 
   return (
     <div className="p-6 bg-white rounded-md shadow-md flex flex-col gap-5">
-      {/* Add Country Visas Section */}
-      <div className="p-6 bg-white rounded-md shadow-md">
-        <h2 className="font-semibold mb-4">Add Country Visas</h2>
-        <div className="flex flex-col gap-4">
-          <input
-            type="file"
-            name="image"
-            className="p-2 border rounded-md"
-            onChange={handleImageChange}
-          />
-          <input
-            type="text"
-            name="title"
-            placeholder="Country Visa"
-            className="p-2 border rounded-md"
-          />
-          {/* <textarea
-            name="description"
-            placeholder="Description"
-            className="p-2 border rounded-md"
-          /> */}
-        </div>
-      </div>
+             <h2 className="font-semibold text-xl">Message From CEO</h2>
+
 
       {/* Add Data Section */}
       <div className="p-6 bg-white rounded-md shadow-md">
@@ -115,7 +55,11 @@ const VisaDestination = () => {
             placeholder="Title"
             className="p-2 border rounded-md"
           />
-          <input type="file" name="image" className="p-2 border rounded-md" />
+           <input
+            type="text"
+            placeholder="Subtitle"
+            className="p-2 border rounded-md"
+          />
           <JoditEditor
             value={editorContent}
             onChange={(newContent) => setEditorContent(newContent)}
@@ -131,16 +75,16 @@ const VisaDestination = () => {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-gray-100 text-gray-700 uppercase text-sm">
-              <th className="px-4 py-2">Cover Image</th>
-              <th className="px-4 py-2">Country Visas</th>
-              <th className="px-4 py-2">Images</th>
+              <th className="px-4 py-2">Image</th>
+              <th className="px-4 py-2">Icon</th>
               <th className="px-4 py-2">Title</th>
+              <th className="px-4 py-2">Subtitle</th>
               <th className="px-4 py-2">Description</th>
               <th className="px-4 py-2 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {visaData.map((val, index) => (
+            {messageData.map((val, index) => (
               <tr
                 key={index}
                 className="border-b last:border-none hover:bg-gray-50"
@@ -153,20 +97,17 @@ const VisaDestination = () => {
                     className="w-16 h-16 rounded-md object-cover cursor-pointer"
                   />
                 </td>
-                <td className="px-4 py-2">{val.countryvisa}</td>
-
                 <td className="px-4 py-2">
-                  <div className="grid gap-2">
-                    {val.images.map((img, i) => (
-                      <img
-                        key={i}
-                        src={img}
-                        className="w-12 h-12 rounded-md object-cover cursor-pointer"
-                      />
-                    ))}
-                  </div>
+                  <img
+                    src={val.icon}
+                    alt={val.title}
+                    className="w-10 h-10 rounded-md object-cover cursor-pointer"
+                  />
                 </td>
                 <td className="px-4 py-2">{val.title}</td>
+
+                
+                <td className="px-4 py-2">{val.subtitle}</td>
 
                 {/* Truncated Description */}
                 <td
@@ -200,4 +141,4 @@ const VisaDestination = () => {
   );
 };
 
-export default VisaDestination;
+export default MessageFromCEO;

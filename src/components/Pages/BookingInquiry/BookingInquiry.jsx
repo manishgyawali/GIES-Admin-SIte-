@@ -1,103 +1,72 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
-import Mail from "../../../../public/Images/icon.png";
-import Message from "../../../../public/Images/icon2.png";
-import Visit from "../../../../public/Images/icon3.png";
-import Call from "../../../../public/Images/icon4.png";
 
-const ContactUs = () => {
-  const contactDetails = [
+const BookingInquiry = () => {
+  const bookingDetails = [
     {
-      icon: Mail, // Replace with your icon, e.g., FontAwesome or similar
-      title: "Mail to us",
-      description: "Speak to our friendly team.",
-      contact: "support@giesedu.com",
+      firstname: "Manish",
+      secondname: "Gyawali",
+      email: "support@giesedu.com",
+      date: "21 November 2024",
+      phone: "9876543210",
     },
     {
-      icon: Message,
-      title: "Chat to support",
-      description: "We're here to help.",
-      contact: "+977 9807553740",
+      firstname: "Abeen",
+      secondname: "Khanal",
+      email: "support@giesedu.com",
+      date: "21 November 2024",
+
+      phone: "9876543210",
     },
     {
-      icon: Visit,
-      title: "Visit us",
-      description: "Visit our office HQ.",
-      contact: "Tinkune, Butwal",
+      firstname: "Manish",
+      secondname: "Gyawali",
+      email: "support@giesedu.com",
+      date: "21 November 2024",
+      phone: "9876543210",
     },
     {
-      icon: Call,
-      title: "Call us",
-      description: "Mon-Fri from 8am to 5pm.",
-      contact: "+977 9821997996",
+      firstname: "Abeen",
+      secondname: "Khanal",
+      email: "support@giesedu.com",
+      date: "21 November 2024",
+
+      phone: "9876543210",
     },
   ];
-  
-
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
-      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Contact Us</h1>{" "}
-      <div className=" w-11/12 mx-auto bg-white border rounded p-6  shadow-md ">
-        <h2 className="font-medium text-lg mb-4">Add Contact </h2>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <input
-            type="file"
-            name="image"
-            className="p-2 border text-sm rounded w-full"
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="Title"
-            className="p-2 border text-sm rounded w-full"
-          />{" "}
-          <input
-            type="text"
-            name="Subtitle"
-            placeholder="Position"
-            className="p-2 border text-sm rounded w-full"
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="Contact"
-            className="p-2 border text-sm rounded w-full"
-          />
-        </div>
-        <button className="mt-4 px-4 py-2 bg-[#415FF2] text-white rounded-md">
-          Add data
-        </button>
-      </div>
+      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
+        Booking Inquiry
+      </h1>{" "}
       <div className="bg-white w-11/12 mx-auto border rounded py-6  shadow-md">
         <h2 className="text-lg w-11/12 mx-auto font-medium mb-4">
-          Manage Contact
+          Manage Booking
         </h2>
         <div className="md:w-11/12 mx-auto">
           <table className="w-full bg-white rounded shadow">
             <thead>
               <tr className="bg-gray-200">
-                <th className="p-4 text-left">Icon</th>
-                <th className="p-4 text-left">Title</th>
-                <th className="p-4 text-left">Subtitle</th>
-                <th className="p-4 text-left">Contact</th>
+                <th className="p-4 text-left">First Name</th>
+                <th className="p-4 text-left">Last Name</th>
+                <th className="p-4 text-left">Email</th>
+                <th className="p-4 text-left">Date</th>
+                <th className="p-4 text-left">Phone Number</th>
+
                 <th className="p-4 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {contactDetails.map((val, index) => (
+              {bookingDetails.map((val, index) => (
                 <tr key={index} className="border-b">
-                  <td className="p-4 ">
-                    <img
-                      src={val.icon}
-                      alt={val.name}
-                      className="p-2 w-10 h-10 rounded-lg object-cover  bg-[#8C9FFD] "
-                    />
-                  </td>{" "}
-                  <td className="p-4">{val.title}</td>
-                  <td className="p-4">{val.description}</td>
-                  <td className="p-4">{val.contact}</td>
+                  <td className="p-4">{val.firstname}</td>
+                  <td className="p-4">{val.secondname}</td>
+                  <td className="p-4">{val.email}</td>
+                  <td className="p-4">{val.date}</td>
+                  <td className="p-4">{val.phone}</td>
+
                   <td className="p-4 md:grid grid items-center justify-center gap-4">
                     <button
                       onClick={setEditIndex}
@@ -188,4 +157,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default BookingInquiry;

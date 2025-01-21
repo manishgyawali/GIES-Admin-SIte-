@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const sidebarData = [
-    { title: "Dashboard", icon: <IoHomeOutline />, path: "/" },
+    { title: "Dashboard", icon: <IoHomeOutline />, path: "/dashboard" },
     { title: "Banner", icon: <CiViewBoard />, path: "/banner" },
     { title: "About Us", icon: <IoPersonCircleOutline />, path: "/aboutus" },
     { title: "Destinations", icon: <PiMapPinLine />, path: "/destinations" },
@@ -65,7 +65,7 @@ const Sidebar = () => {
       title: "Page Layout",
       icon: <CiViewBoard />,
       subdata: [
-        { title: "Destinations", path: "/destinations" },
+        { title: "Destinations", path: "/destinationst" },
         { title: "Why Us", path: "/whyus" },
         { title: "Dark Menu", path: "/darkmenu" },
         { title: "Dark Menu", path: "/darkmenu" },

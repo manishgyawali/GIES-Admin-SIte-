@@ -23,6 +23,8 @@ import ContactInquiry from "./components/Pages/ContactInquiry/ContactInquiry";
 import BookingInquiry from "./components/Pages/BookingInquiry/BookingInquiry";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
 import MessageFromCEO from "./components/Pages/MessageFromCEO/MessageFromCEO";
+import DestinationsT from "./components/Pages/Destinations/DestinationsT";
+import Dashboard from "./components/Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -42,8 +44,9 @@ function App() {
             {/* Main Content */}
             <div className="lg:flex-1 absolute  w-full  top-36 px-8 scroll overflow-scroll">
               <Routes>
-              <Route path="/banner" element={<Banner />} />
-              <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/banner" element={<Banner />} />
+                <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/destinations" element={<Destinations />} />
                 <Route path="/whyus" element={<Whyus />} />
                 <Route path="/courses" element={<Courses />} />
@@ -58,20 +61,18 @@ function App() {
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contactus" element={<ContactUs />} />
                 <Route path="/contactinquiry" element={<ContactInquiry />} />
-                <Route path="/carreropportunities" element={<CarrerOpportunities />} />
+                <Route
+                  path="/carreropportunities"
+                  element={<CarrerOpportunities />}
+                />
                 <Route path="/visadestinations" element={<VisaDestination />} />
                 <Route path="/bookinginquiry" element={<BookingInquiry />} />
                 <Route path="/messagefromceo" element={<MessageFromCEO />} />
-
-
-
-
-
                 <Route path="/frequentlyaq" element={<FrequentlyAQ />} />
+                <Route path="/destinationst" element={<DestinationsT />} />
               </Routes>
-            <Footer className=""  />
+              <Footer className="" />
             </div>
-
           </div>
         </div>
       </Router>

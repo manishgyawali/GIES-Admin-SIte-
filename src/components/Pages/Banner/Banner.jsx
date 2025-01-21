@@ -3,14 +3,14 @@ import { IoPencil, IoTrash } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
 
 const Banner = () => {
-  const [banners] = useState([
+  const banners = [
     {
       title: "Your Global Education Partner for Visa Success",
       subtitle:
         "Guiding you through every step of the process—student visas, test preparation, and beyond",
       image: "/Images/Frame 38.png",
     },
-  ]);
+  ]
 
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);

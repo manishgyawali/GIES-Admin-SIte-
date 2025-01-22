@@ -29,6 +29,9 @@ import WhyusT from "./components/Pages/Whyus/WhyusT";
 import CoursesT from "./components/Pages/Courses/CoursesT";
 import OurTeamT from "./components/Pages/OurTeam/OurTeamT";
 import TestimonialsT from './components/Pages/Testimonials/TestimonialsT';
+import OurServicesT from "./components/Pages/Our Services/OurServicesT";
+import ArticlesT from "./components/Pages/Articles/ArticlesT";
+import FrequentlyAQT from './components/Pages/FrequentlyAQ/FrequentlyAQT';
 
 function App() {
   return (
@@ -78,6 +81,11 @@ function App() {
                 <Route path="/whyust" element={<WhyusT />} />
                 <Route path="/ourteamt" element={<OurTeamT />} />
                 <Route path="/testimonialst" element={<TestimonialsT />} />
+                <Route path="/ourservicest" element={<OurServicesT />} />
+                <Route path="/articlest" element={<ArticlesT />} />
+                <Route path="/frequentlyaqt" element={<FrequentlyAQT />} />
+
+
               </Routes>
               <Footer className="" />
             </div>

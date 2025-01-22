@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 
-const TestimonialsT = () => {
+const ArticlesT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
 
@@ -145,4 +145,4 @@ const TestimonialsT = () => {
   );
 };
 
-export default TestimonialsT;
+export default ArticlesT;

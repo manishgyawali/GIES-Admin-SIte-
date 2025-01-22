@@ -5,7 +5,7 @@ const OurServices = () => {
   const [services, setServices] = useState([
     {
       title: "Visa Consultation and Guidance",
-      subtitle:
+      description:
         "Navigating visa applications can be complex. Our team of visa experts will assist...",
       image: "https://via.placeholder.com/150",
 
@@ -13,8 +13,22 @@ const OurServices = () => {
     },
     {
       title: "Test Preparation for IELTS, PTE, and TOEFL",
-      subtitle:
+      description:
         "Get ready for success with our expert-led courses for language proficiency tests...",
+      image: "https://via.placeholder.com/150",
+      btntext: "Start Preparing Now",
+    },
+    {
+      title: "Study Abroad Assistance",
+      description:
+"Plan your education in top countries worldwide with our tailored support. We provide personalized advice on university selection, course guidance, and application process management.",      image: "https://via.placeholder.com/150",
+
+      btntext: "Book a Consultation",
+    },
+    {
+      title: "Document Verification & Legalization",
+      description:
+      "Be fully prepared for your visa interview with mock sessions, interview tips, and one-on-one coaching to boost your confidence and increase your chances of approval.",
       image: "https://via.placeholder.com/150",
       btntext: "Start Preparing Now",
     },
@@ -110,7 +124,7 @@ const OurServices = () => {
             {services.map((service, index) => (
               <tr key={index} className="border-b">
                 <td className="p-4">{service.title}</td>
-                <td className="p-4">{service.subtitle}</td>
+                <td className="p-4">{service.description}</td>
                 <td className="p-4">{service.btntext}</td>
 
                 <td className="p-4 flex gap-4 justify-center">

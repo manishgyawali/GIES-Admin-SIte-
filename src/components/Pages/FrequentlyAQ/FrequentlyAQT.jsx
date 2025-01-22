@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 
-const TestimonialsT = () => {
+const FrequentlyAQT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
 
@@ -10,7 +10,6 @@ const TestimonialsT = () => {
       title: "Your Global Education Partner for Visa Success",
       subtitle:
         "Guiding you through every step of the process—student visas, test preparation, and beyond",
-      description: "Your Global Education Partner for Visa Success",
     },
   ];
   return (
@@ -32,13 +31,7 @@ const TestimonialsT = () => {
               className="p-2 border rounded w-full"
             />
           </div>
-          <div className="flex gap-4 items-center">
-            <input
-              type="text"
-              placeholder="Description"
-              className="p-2 border rounded w-full"
-            />
-          </div>
+          
         </div>
         <button className="px-4 mt-4 py-2 bg-[#415FF2] text-white rounded-md">
           Add Title{" "}
@@ -55,7 +48,6 @@ const TestimonialsT = () => {
               <tr className="bg-gray-200 font-semibold">
                 <th className="p-4 text-left">Title</th>
                 <th className="p-4 text-left">Subtitle</th>
-                <th className="p-4 text-left">Description</th>
                 <th className="p-4 text-center">Actions</th>
               </tr>
             </thead>
@@ -64,7 +56,6 @@ const TestimonialsT = () => {
                 <tr key={index} className="border-b">
                   <td className="p-4">{val.title}</td>
                   <td className="p-4">{val.subtitle}</td>
-                  <td className="p-4">{val.description}</td>
 
                   <td className="p-4 grid gap-4 ">
                     <button
@@ -145,4 +136,4 @@ const TestimonialsT = () => {
   );
 };
 
-export default TestimonialsT;
+export default FrequentlyAQT;

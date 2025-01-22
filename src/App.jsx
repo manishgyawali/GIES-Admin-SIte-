@@ -32,6 +32,7 @@ import TestimonialsT from './components/Pages/Testimonials/TestimonialsT';
 import OurServicesT from "./components/Pages/Our Services/OurServicesT";
 import ArticlesT from "./components/Pages/Articles/ArticlesT";
 import FrequentlyAQT from './components/Pages/FrequentlyAQ/FrequentlyAQT';
+import AboutUsT from "./components/Pages/AboutUs/AboutUsT";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
                 <Route path="/ourservicest" element={<OurServicesT />} />
                 <Route path="/articlest" element={<ArticlesT />} />
                 <Route path="/frequentlyaqt" element={<FrequentlyAQT />} />
+                <Route path="/aboutust" element={<AboutUsT />} />
 
 
               </Routes>

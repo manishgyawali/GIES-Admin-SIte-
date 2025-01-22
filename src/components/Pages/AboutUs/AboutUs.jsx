@@ -25,12 +25,12 @@ const AboutUs = () => {
   ];
 
   const [editorContent, setEditorContent] = useState("");
-  const [deleteIndex, setDeleteIndex] = useState(false);
-  const [editIndex, setEditIndex] = useState(false);
+  const [previewIndex, setPreviewIndex] = useState(null); // For managing the preview modal
 
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
       <h1 className="text-2xl font-semibold w-11/12 mx-auto">About Us</h1>
+
       <div className="bg-white border rounded w-11/12 mx-auto p-6 shadow-md">
         <h2 className="text-lg font-medium mb-4">Add Data</h2>
         <div className="grid gap-4">
@@ -64,6 +64,8 @@ const AboutUs = () => {
                 <th className="p-4 text-left">Title</th>
                 <th className="p-4 text-left">Description</th>
                 <th className="p-4 text-center">Actions</th>
+                <th className="p-4 text-center">Preview</th>
+
               </tr>
             </thead>
             <tbody>
@@ -78,28 +80,62 @@ const AboutUs = () => {
                   </td>
                   <td className="p-4">{val.title}</td>
                   <td className="p-4">{val.description}</td>
+
                   <td className="p-4 md:grid grid items-center justify-center gap-4">
+                   
                     <button
-                      onClick={() => setEditIndex(index)}
+                      onClick={() => console.log("Edit", index)}
                       className="px-4 py-1 bg-yellow-400 text-white rounded-md flex items-center gap-2"
                     >
                       <IoPencil />
                       Edit
                     </button>
                     <button
-                      onClick={() => setDeleteIndex(index)}
+                      onClick={() => console.log("Delete", index)}
                       className="px-4 py-1 bg-red-500 text-white rounded-md flex items-center gap-2"
                     >
                       <IoTrash />
                       Delete
                     </button>
                   </td>
+                  <td className="p-4"> <button
+                      onClick={() => setPreviewIndex(index)} // Open modal
+                      className="px-4 py-1 bg-blue-500 text-white rounded-md"
+                    >
+                      Preview
+                    </button></td>
+
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
+      {/* Preview Modal */}
+      {previewIndex !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg w-96">
+            <h2 className="text-xl font-bold mb-4">
+              {aboutusData[previewIndex].title}
+            </h2>
+            <img
+              src={aboutusData[previewIndex].icon}
+              alt={aboutusData[previewIndex].title}
+              className="h-24 w-24 mb-4 rounded mx-auto"
+            />
+            <p className="text-sm text-gray-700">
+              {aboutusData[previewIndex].description}
+            </p>
+            <button
+              onClick={() => setPreviewIndex(null)} // Close modal
+              className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 
-const DestinationsT = () => {
+const AboutUsT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
 
-  const destinationtData = [
+  const testimonialdata = [
     {
-      title: "Integrations",
-      subtitle: "Explore Visa Options for Popular Destinations",
-      description:
-        " Get visa assistance for these top destinations. Whether you're astudent, a traveler, or a professional, we're here to help!",
+      title: "Your Global Education Partner for Visa Success",
+      subtitle:
+        "Guiding you through every step of the process—student visas, test preparation, and beyond",
     },
   ];
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
-      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
-        Destinations Title
-      </h1>
+      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Courses Title</h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
         <h2 className="text-lg font-medium mb-4">Add Title Data </h2>
@@ -34,13 +31,7 @@ const DestinationsT = () => {
               className="p-2 border rounded w-full"
             />
           </div>
-          <div className="flex gap-4 items-center">
-            <input
-              type="text"
-              placeholder="Description"
-              className="p-2 border rounded w-full"
-            />
-          </div>
+          
         </div>
         <button className="px-4 mt-4 py-2 bg-[#415FF2] text-white rounded-md">
           Add Title{" "}
@@ -49,7 +40,7 @@ const DestinationsT = () => {
 
       <div className="bg-white w-11/12 mx-auto border rounded py-6  shadow-md">
         <h2 className="text-lg w-11/12 mx-auto font-medium mb-4">
-          Manage Banners
+          Manage data
         </h2>
         <div className=" md:w-11/12 mx-auto">
           <table className="w-full bg-white rounded shadow ">
@@ -57,16 +48,14 @@ const DestinationsT = () => {
               <tr className="bg-gray-200 font-semibold">
                 <th className="p-4 text-left">Title</th>
                 <th className="p-4 text-left">Subtitle</th>
-                <th className="p-4 text-left">Description</th>
                 <th className="p-4 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {destinationtData.map((banner, index) => (
+              {testimonialdata.map((val, index) => (
                 <tr key={index} className="border-b">
-                  <td className="p-4">{banner.title}</td>
-                  <td className="p-4">{banner.subtitle}</td>
-                  <td className="p-4">{banner.description}</td>
+                  <td className="p-4">{val.title}</td>
+                  <td className="p-4">{val.subtitle}</td>
 
                   <td className="p-4 grid gap-4 ">
                     <button
@@ -99,7 +88,10 @@ const DestinationsT = () => {
                   <button className="px-8 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                     Yes
                   </button>
-                  <button className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400">
+                  <button
+                    className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+                    onClick={() => setDeleteIndex(null)}
+                  >
                     Cancel
                   </button>
                 </div>
@@ -111,7 +103,7 @@ const DestinationsT = () => {
           {editIndex && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white px-12 py-8 rounded shadow-md max-w-sm w-full">
-                <h2 className="font-medium text-lg mb-4">Edit Destination</h2>
+                <h2 className="font-medium text-lg mb-4">Edit Titles</h2>
                 <div className="grid gap-4 mb-4">
                   <input
                     type="text"
@@ -144,4 +136,4 @@ const DestinationsT = () => {
   );
 };
 
-export default DestinationsT;
+export default AboutUsT;

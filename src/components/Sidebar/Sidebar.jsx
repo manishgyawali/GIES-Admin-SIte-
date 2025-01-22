@@ -66,16 +66,14 @@ const Sidebar = () => {
       icon: <CiViewBoard />,
       subdata: [
         { title: "Destinations", path: "/destinationst" },
-        { title: "Why Us", path: "/whyus" },
+        { title: "Why Us", path: "/whyust" },
+        { title: "Courses", path: "/coursest" },
+        { title: "Our Team", path: "/ourteamt" },        { title: "Testimonials", path: "/testimonialst" },
         { title: "Dark Menu", path: "/darkmenu" },
         { title: "Dark Menu", path: "/darkmenu" },
         { title: "Dark Menu", path: "/darkmenu" },
         { title: "Dark Menu", path: "/darkmenu" },
         { title: "Dark Menu", path: "/darkmenu" },
-        { title: "Dark Menu", path: "/darkmenu" },
-        { title: "Dark Menu", path: "/darkmenu" },
-        { title: "Dark Menu", path: "/darkmenu" },
-
       ],
     },
   ];
@@ -126,7 +124,7 @@ const Sidebar = () => {
             {/* Dropdown Submenu */}
             {item.subdata && (
               <div
-                className={`flex flex-col pl-16 mt-2 gap-2 text-gray-500 overflow-hidden transition-all duration-300 ${
+                className={`flex flex-col pl-16 mt-5 gap-4 text-gray-500 overflow-hidden transition-all duration-300 ${
                   showDropdown === index ? "max-h-screen" : "max-h-0"
                 }`}
               >
@@ -134,7 +132,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={subItem.path}
-                    className="hover:text-[#415FF2] text-lg tracking-wider"
+                    className="hover:text-[#415FF2] text-lg transition-transform duration-300 ease-in-out hover:translate-x-4 tracking-wider"
                   >
                     {subItem.title}
                   </Link>

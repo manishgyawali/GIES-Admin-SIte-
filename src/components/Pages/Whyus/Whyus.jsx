@@ -33,49 +33,13 @@ const ManageChooseUs = () => {
       <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Why Us</h1>
       <div className="w-11/12 flex flex-col gap-6 mx-auto">
 
-        <div className="bg-white border rounded p-6  shadow-md">
-          <h2 className="text-lg font-medium mb-4">Add Title Data </h2>
-          <div className="grid gap-4">
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Title"
-                className="p-2 border rounded w-full"
-              />
-              <input
-                type="text"
-                placeholder="Subtitle"
-                className="p-2 border rounded w-full"
-              />
-            </div>
-            <div className="flex gap-4 items-center">
-              <input
-                type="text"
-                placeholder="Description"
-                className="p-2 border rounded w-full"
-              />
-              <input
-                type="file"
-                placeholder="Description"
-                className="p-2 border rounded w-full"
-              />
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="px-4 mt-4 py-2 bg-[#415FF2] text-white rounded-md">
-              Add Title{" "}
-            </button>
-            <button className="px-4 flex items-center justify-center gap-2 mt-4 py-2 bg-yellow-400 text-white rounded-md">
-              <IoPencil /> Edit
-            </button>
-          </div>
-        </div>
+       
 
         {/* Add/Edit Form */}
         <div className="bg-white border rounded p-6  shadow-md">
           <h2 className=" font-semibold mb-4">Add Data</h2>
           <div className="grid  gap-4">
-            <div className="flex gap-4 items-center">
+            <div className="grid grid-cols-2 gap-4 items-center">
               <input type="file" className="p-2 border rounded w-full" />
 
               <input

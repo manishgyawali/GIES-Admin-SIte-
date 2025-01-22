@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 
-const DestinationsT = () => {
+const WhyusT = () => {
   
     const [deleteIndex, setDeleteIndex] = useState(false);
     const [editIndex, setEditIndex] = useState(false);
 
-    const destinationtData = [
+    const whyusData = [
         {
           title: "Your Global Education Partner for Visa Success",
           subtitle:
@@ -16,7 +16,7 @@ const DestinationsT = () => {
       ]
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
-      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Destinations Title</h1>
+      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Why Us Title</h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
         <h2 className="text-lg font-medium mb-4">Add Title Data </h2>
@@ -49,7 +49,7 @@ const DestinationsT = () => {
 
 <div className="bg-white w-11/12 mx-auto border rounded py-6  shadow-md">
         <h2 className="text-lg w-11/12 mx-auto font-medium mb-4">
-          Manage Banners
+          Manage data
         </h2>
         <div className=" md:w-11/12 mx-auto">
           <table className="w-full bg-white rounded shadow ">
@@ -62,11 +62,11 @@ const DestinationsT = () => {
               </tr>
             </thead>
             <tbody>
-              {destinationtData.map((banner, index) => (
+              {whyusData.map((val, index) => (
                 <tr key={index} className="border-b">
-                  <td className="p-4">{banner.title}</td>
-                  <td className="p-4">{banner.subtitle}</td>
-                  <td className="p-4">{banner.description}</td>
+                  <td className="p-4">{val.title}</td>
+                  <td className="p-4">{val.subtitle}</td>
+                  <td className="p-4">{val.description}</td>
                 
                   <td className="p-4 grid gap-4 ">
                     <button
@@ -111,7 +111,7 @@ const DestinationsT = () => {
       {editIndex && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white px-12 py-8 rounded shadow-md max-w-sm w-full">
-            <h2 className="font-medium text-lg mb-4">Edit Destination</h2>
+            <h2 className="font-medium text-lg mb-4">Edit Titles</h2>
             <div className="grid gap-4 mb-4">
               <input
                 type="text"
@@ -145,4 +145,4 @@ const DestinationsT = () => {
   );
 };
 
-export default DestinationsT;
+export default WhyusT;

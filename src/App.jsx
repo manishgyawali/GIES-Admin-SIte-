@@ -25,6 +25,10 @@ import AboutUs from "./components/Pages/AboutUs/AboutUs";
 import MessageFromCEO from "./components/Pages/MessageFromCEO/MessageFromCEO";
 import DestinationsT from "./components/Pages/Destinations/DestinationsT";
 import Dashboard from "./components/Pages/Dashboard/Dashboard";
+import WhyusT from "./components/Pages/Whyus/WhyusT";
+import CoursesT from "./components/Pages/Courses/CoursesT";
+import OurTeamT from "./components/Pages/OurTeam/OurTeamT";
+import TestimonialsT from './components/Pages/Testimonials/TestimonialsT';
 
 function App() {
   return (
@@ -70,6 +74,10 @@ function App() {
                 <Route path="/messagefromceo" element={<MessageFromCEO />} />
                 <Route path="/frequentlyaq" element={<FrequentlyAQ />} />
                 <Route path="/destinationst" element={<DestinationsT />} />
+                <Route path="/coursest" element={<CoursesT />} />
+                <Route path="/whyust" element={<WhyusT />} />
+                <Route path="/ourteamt" element={<OurTeamT />} />
+                <Route path="/testimonialst" element={<TestimonialsT />} />
               </Routes>
               <Footer className="" />
             </div>

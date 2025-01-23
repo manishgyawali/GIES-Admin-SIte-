@@ -112,7 +112,7 @@ const MessageFromCEO = () => {
                 {/* Truncated Description */}
                 <td
                   className="px-4 py-2 cursor-pointer"
-                  onClick={() => handleDescriptionClick(val.description)} // Open description modal
+                  onClick={() => handleDescriptionClick(val.description)} 
                 >
                   {truncateDescription(val.description, 80)}
                 </td>

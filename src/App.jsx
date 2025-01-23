@@ -33,6 +33,7 @@ import OurServicesT from "./components/Pages/Our Services/OurServicesT";
 import ArticlesT from "./components/Pages/Articles/ArticlesT";
 import FrequentlyAQT from './components/Pages/FrequentlyAQ/FrequentlyAQT';
 import AboutUsT from "./components/Pages/AboutUs/AboutUsT";
+import BookingInquiryT from "./components/Pages/BookingInquiry/BookingInquiryT";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
       <Router>
         <div className="flex w-full h-screen">
           {/* Sidebar */}
-          <aside className="lg:w-[280px] h-full shadow-sm scroll  overflow-y-scroll">
+          <aside className="lg:w-[280px]  h-full shadow-sm scroll  overflow-y-scroll">
             <Sidebar />
           </aside>
 
@@ -86,6 +87,7 @@ function App() {
                 <Route path="/articlest" element={<ArticlesT />} />
                 <Route path="/frequentlyaqt" element={<FrequentlyAQT />} />
                 <Route path="/aboutust" element={<AboutUsT />} />
+                <Route path="/bookinginquiryt" element={<BookingInquiryT />} />
 
 
               </Routes>

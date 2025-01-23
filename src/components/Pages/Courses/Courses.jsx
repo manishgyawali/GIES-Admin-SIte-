@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoPencil, IoTrash } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
+import JoditEditor from "jodit-react";
 
 const Courses = () => {
   const courses = [
@@ -35,54 +36,15 @@ const Courses = () => {
       image: "/Images/cmat.png",
     },
   ];
+  const [editorContent, setEditorContent] = useState("");
+
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
       <div className="flex items-center justify-between w-11/12 mx-auto">
         <h1 className="text-2xl font-semibold ">Our Courses</h1>
-
-        {/* search section  */}
-        <div className="relative flex justify-center flex-col items-center">
-          <input
-            type="text"
-            placeholder="Search here..."
-            className="w-40 p-3 pl-10 text-sm rounded-full bg-[#415FF2] text-white placeholder-white outline-none"
-          />
-          <RiSearchLine className="h-4 w-4 absolute  left-4 text-white" />
-        </div>
       </div>{" "}
-
-
-      <div className="bg-white w-11/12 mx-auto border rounded p-6  shadow-md">
-          <h2 className="text-lg font-medium mb-4">Add Title Data </h2>
-          <div className="grid gap-4">
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Title"
-                className="p-2 border rounded w-full"
-              />
-              <input
-                type="text"
-                placeholder="Subtitle"
-                className="p-2 border rounded w-full"
-              />
-            </div>
-            <div className="flex gap-4 items-center">
-              <input
-                type="text"
-                placeholder="Description"
-                className="p-2 border rounded w-full"
-              />
-            </div>
-          </div>
-          <button className="px-4 mt-4 py-2 bg-[#415FF2] text-white rounded-md">
-            Add Title{" "}
-          </button>
-        </div>
-
-
       {/* Add/Edit Form */}
       <div className=" bg-white flex flex-col gap-4 border rounded w-11/12 mx-auto p-6  shadow-md ">
         <h2 className="text-lg font-medium mb-4">Add New Course </h2>
@@ -98,25 +60,31 @@ const Courses = () => {
             accept="image/*"
             className="p-2 border text-sm rounded w-full"
           />
-          <textarea
-            name="description"
-            placeholder="Course Description"
-            className="p-2 border text-sm rounded w-full sm:col-span-2"
-          ></textarea>
         </div>
+        <JoditEditor
+          value={editorContent}
+          onChange={(newContent) => setEditorContent(newContent)}
+        />
         <div>
           <button className="px-4 py-2 bg-[#415FF2] text-white rounded-md">
             Add Course{" "}
           </button>
         </div>
       </div>
-
-
       {/* Courses Table */}
       <div className="bg-white flex flex-col gap-4 border rounded w-11/12 mx-auto p-6  shadow-md">
-        <div className="flex items-center  justify-between">
-          <h2 className="text-lg font-medium ">Manage Courses</h2>
-        </div>
+        <div className="flex items-center mb-4 justify-between w-11/12 mx-auto">
+                    <h1 className="text-lg font-semibold ">Manage Data</h1>
+                    {/* search section  */}
+                    <div className="relative flex justify-center flex-col items-center">
+                      <input
+                        type="text"
+                        placeholder="Search here..."
+                        className="w-40 p-2 pl-10 text-sm rounded-full bg-[#415FF2] text-white placeholder-white outline-none"
+                      />
+                      <RiSearchLine className="h-4 w-4 absolute  left-4 text-white" />
+                    </div>
+                  </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => (
             <div key={index} className="bg-white rounded-lg shadow p-4">

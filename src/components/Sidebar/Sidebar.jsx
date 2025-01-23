@@ -74,7 +74,7 @@ const Sidebar = () => {
         { title: "Articles", path: "/articlest" },
         { title: "Frequently AQ", path: "/frequentlyaqt" },
         { title: "About Us", path: "/aboutust" },
-        { title: "Dark Menu", path: "/darkmenu" },
+        { title: "Booking Inquiry", path: "/bookinginquiryt" },
       ],
     },
   ];
@@ -82,7 +82,7 @@ const Sidebar = () => {
   const [showDropdown, setShowDropdown] = useState(null);
 
   return (
-    <div className="lg:flex hidden flex-col gap-8 sticky">
+    <div className="lg:flex hidden flex-col gap-8 ">
       {/* Sidebar Header */}
       <div className="flex flex-col items-center justify-center py-8">
         <h1 className="text-[#415FF2] font-bold text-3xl">GIES.</h1>

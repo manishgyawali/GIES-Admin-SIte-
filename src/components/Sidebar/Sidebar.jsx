@@ -67,14 +67,15 @@ const Sidebar = () => {
       subdata: [
         { title: "Destinations", path: "/destinationst" },
         { title: "Why Us", path: "/whyust" },
+        { title: "Our Services", path: "/ourservicest" },
         { title: "Courses", path: "/coursest" },
         { title: "Our Team", path: "/ourteamt" },
         { title: "Testimonials", path: "/testimonialst" },
-        { title: "Our Services", path: "/ourservicest" },
         { title: "Articles", path: "/articlest" },
         { title: "Frequently AQ", path: "/frequentlyaqt" },
         { title: "About Us", path: "/aboutust" },
         { title: "Booking Inquiry", path: "/bookinginquiryt" },
+        { title: "Gallery", path: "/galleryt" },
       ],
     },
   ];
@@ -98,16 +99,16 @@ const Sidebar = () => {
                   ? setShowDropdown(showDropdown === index ? null : index)
                   : null
               }
-              className={`flex items-center gap-4 text-gray-400 hover:text-[#415FF2] cursor-pointer ${
+              className={`flex items-center gap-4 text-gray-500 hover:text-[#415FF2] cursor-pointer ${
                 item.subdata ? "justify-between" : ""
               }`}
             >
               {/* Icon */}
-              <div className="shadow p-2">{item.icon}</div>
+              <div className="shadow rounded text-lg p-2">{item.icon}</div>
 
               {/* Title */}
               <Link to={item.path} className="flex-1">
-                <h1 className="text-lg tracking-wider">{item.title}</h1>
+                <h1 className="text-lg  tracking-wider">{item.title}</h1>
               </Link>
 
               {/* Dropdown Icon */}

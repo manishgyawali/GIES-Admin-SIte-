@@ -34,6 +34,7 @@ import ArticlesT from "./components/Pages/Articles/ArticlesT";
 import FrequentlyAQT from './components/Pages/FrequentlyAQ/FrequentlyAQT';
 import AboutUsT from "./components/Pages/AboutUs/AboutUsT";
 import BookingInquiryT from "./components/Pages/BookingInquiry/BookingInquiryT";
+import GalleryT from "./components/Pages/Gallery/GalleryT";
 
 function App() {
   return (
@@ -88,6 +89,7 @@ function App() {
                 <Route path="/frequentlyaqt" element={<FrequentlyAQT />} />
                 <Route path="/aboutust" element={<AboutUsT />} />
                 <Route path="/bookinginquiryt" element={<BookingInquiryT />} />
+                <Route path="/galleryt" element={<GalleryT />} />
 
 
               </Routes>

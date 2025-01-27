@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { IoTrash, IoPencil } from "react-icons/io5";
+import { IoPencil, IoTrash } from "react-icons/io5";
+import { RiSearchLine } from "react-icons/ri";
+import JoditEditor from "jodit-react";
 
 const AdminTestimonials = () => {
   const articlesData = [
@@ -32,30 +34,12 @@ const AdminTestimonials = () => {
         "Learn how to create seamless user experiences for web and mobile.",
     },
   ];
-
-  const [deleteIndex, setDeleteIndex] = useState(null); // Use null instead of false
-  const [editIndex, setEditIndex] = useState(null); // Use null instead of false
+  const [previewIndex, setPreviewIndex] = useState(null);
+  const [deleteIndex, setDeleteIndex] = useState(false);
+  const [editIndex, setEditIndex] = useState(false);
+  const [editorContent, setEditorContent] = useState("");
 
   const [selectedImages, setSelectedImages] = useState([]);
-
-  const [imageModal, setImageModal] = useState(null); // State for image modal
-  const [descriptionModal, setDescriptionModal] = useState(null); // State for description modal
-
-  // Open image modal
-  const handleImageClick = (image) => {
-    setImageModal(image);
-  };
-
-  // Open description modal
-  const handleDescriptionClick = (description) => {
-    setDescriptionModal(description);
-  };
-
-  // Close both modals
-  const closeModal = () => {
-    setImageModal(null);
-    setDescriptionModal(null);
-  };
 
   // Utility function to truncate description
   const truncateDescription = (text, maxLength) =>
@@ -71,7 +55,7 @@ const AdminTestimonials = () => {
     <div className="p-8 bg-[#F9FAFB] rounded-2xl min-h-screen">
       <div className="flex flex-col gap-8">
         {/* Header */}
-        <h1 className="text-lg font-semibold text-[#172155]">Manage Articles</h1>
+        <h1 className="text-2xl font-semibold text-[#172155]"> Articles</h1>
 
         {/* Form to Add/Edit Event */}
         <div className="p-6 bg-white rounded-md flex flex-col gap-5 shadow-md">
@@ -114,11 +98,9 @@ const AdminTestimonials = () => {
                 multiple
                 onChange={handleImageChange}
               />
-              <textarea
-                type="text"
-                name="title"
-                placeholder="Description"
-                className="p-2 border rounded-md"
+              <JoditEditor
+                value={editorContent}
+                onChange={(newContent) => setEditorContent(newContent)}
               />
             </div>
             <button className="mt-4 px-4 py-2 bg-[#415FF2] text-white rounded-md">
@@ -153,6 +135,7 @@ const AdminTestimonials = () => {
                 <th className="px-4 py-2">Images</th>
                 <th className="px-4 py-2">Description</th>
                 <th className="px-4 py-2 text-center">Actions</th>
+                <th className="px-4 py-2 text-center">Preview</th>
               </tr>
             </thead>
             <tbody>
@@ -197,18 +180,26 @@ const AdminTestimonials = () => {
                   </td>
 
                   {/* Actions */}
-                  <td className="px-4 py-2 text-center flex flex-col justify-center gap-2">
+                  <td className="px-4 py-2 text-center flex flex-col  justify-center gap-2">
                     <button
-                      onClick={() => setEditIndex(index)} // Set the index for edit
+                      onClick={setEditIndex}
                       className="px-4 py-2 bg-yellow-400 text-white rounded-md flex items-center gap-2"
                     >
                       <IoPencil /> Edit
                     </button>
                     <button
-                      onClick={() => setDeleteIndex(index)} // Set the index for delete
+                      onClick={setDeleteIndex}
                       className="px-4 py-2 bg-red-500 text-white rounded-md flex items-center gap-2"
                     >
                       <IoTrash /> Delete
+                    </button>
+                  </td>
+                  <td className="p-4 ">
+                    <button
+                      onClick={() => setPreviewIndex(index)}
+                      className="px-4 py-1 bg-blue-500 text-white rounded-md"
+                    >
+                      Preview
                     </button>
                   </td>
                 </tr>
@@ -217,38 +208,8 @@ const AdminTestimonials = () => {
           </table>
         </div>
 
-        {/* Image Modal */}
-        {imageModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white flex flex-col gap-6 p-8 rounded-3xl shadow-md relative">
-              <button
-                className="absolute top-2 right-2 px-4 py-2 rounded-lg bg-red-500 text-white"
-                onClick={closeModal} // Close modal
-              >
-                Close
-              </button>
-              <img src={imageModal} alt="Full Size" className="w-96 rounded-md" />
-            </div>
-          </div>
-        )}
-
-        {/* Description Modal */}
-        {descriptionModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white w-6/12 mx-auto flex flex-col gap-6 p-8 rounded-3xl shadow-md relative">
-              <button
-                className="absolute top-2 right-2 px-4 text-white py-2 rounded-lg bg-red-500"
-                onClick={closeModal} // Close modal
-              >
-                Close
-              </button>
-              <p className="text-black">{descriptionModal}</p>
-            </div>
-          </div>
-        )}
-
-        {/* Delete Confirmation Popup */}
-        {deleteIndex !== null && (
+        {/* popup for deletion button  */}
+        {deleteIndex && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white px-6 py-8 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
               <p className="text-lg text-center font-medium mb-4">
@@ -259,8 +220,8 @@ const AdminTestimonials = () => {
                   Yes
                 </button>
                 <button
+                  onClick={() => setDeleteIndex(null)}
                   className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
-                  onClick={() => setDeleteIndex(null)} // Close popup
                 >
                   Cancel
                 </button>
@@ -269,12 +230,12 @@ const AdminTestimonials = () => {
           </div>
         )}
 
-        {/* Edit Popup */}
-        {editIndex !== null && (
+        {/* popup for edit button  */}
+        {editIndex && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white px-12 py-8 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
-              <h2 className="font-medium text-lg mb-4">Edit Events</h2>
-              <div className="grid gap-4 mb-4">
+            <div className="bg-white px-8 py-6 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+              <h2 className="font-medium text-lg mb-6 ">Edit Data</h2>
+              <div className="grid gap-4 mb-6">
                 <input
                   type="file"
                   name="image"
@@ -292,9 +253,76 @@ const AdminTestimonials = () => {
                   placeholder="Event Date"
                   className="p-2 border rounded-md"
                 />
+                <input
+                  type="file"
+                  name="image"
+                  className="p-2 border rounded-md"
+                  multiple
+                  onChange={handleImageChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Description"
+                  className="p-2 border rounded-md"
+                />
               </div>
-              <button className="mt-4 px-4 py-2 bg-[#415FF2] text-white rounded-md">
-                Save Changes
+              <div className="flex items-center  gap-4">
+                <button className="px-6 py-2 bg-[#415FF2] text-white rounded-md hover:bg-blue-600">
+                  Save Changes
+                </button>
+                <button
+                  onClick={() => setEditIndex(null)}
+                  className="px-6 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Preview Modal */}
+        {previewIndex !== null && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white flex flex-col p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+              {/* Main Cover Image */}
+              <img
+                src={articlesData[previewIndex].image}
+                alt={articlesData[previewIndex].title}
+                className="h-24 w-24 mb-4 rounded object-cover"
+              />
+
+              {/* Event Title */}
+              <h2 className="text-xl font-semibold mb-3">
+                {articlesData[previewIndex].title}
+              </h2>
+
+              {/* Event Date */}
+              <h2 className="text-xl font-semibold mb-3">
+                {articlesData[previewIndex].date}
+              </h2>
+
+              {/* Event Description */}
+              <h2 className="mb-3">{articlesData[previewIndex].description}</h2>
+
+              {/* Additional Images */}
+              <div className="flex gap-2 flex-wrap">
+                {articlesData[previewIndex].images.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`Event ${idx + 1}`}
+                    className="h-24 w-24 mb-4 rounded object-cover"
+                  />
+                ))}
+              </div>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setPreviewIndex(null)} // Close modal
+                className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+              >
+                Close
               </button>
             </div>
           </div>

@@ -3,27 +3,22 @@ import { IoPencil, IoTrash } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
 import JoditEditor from "jodit-react";
 
-const TestimonialsT = () => {
+const ContactUsT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(null);
   const [editorContent, setEditorContent] = useState("");
 
-  const testimonialstData = [
+  const contactustData = [ 
     {
-      title: "Testimonials",
-      subtitle: "Our Clients’ Success Stories",
-      description:
-        " From dreams to reality, hear how GIES helped thousands achieve their goals.",
-      description2:
-        "The future belongs to those who believe i the beauty of their dreams",
+      title: "Contact us",
+      subtitle: "We’d love to hear from you",
+      description: "Our friendly team is always here to chat.",
     },
   ];
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
-      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
-        Testimonials Title
-      </h1>
+      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Contact Us Title</h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
         <h2 className="text-lg font-medium mb-4">Add Title Data </h2>
@@ -40,10 +35,6 @@ const TestimonialsT = () => {
               className="p-2 border rounded w-full"
             />
           </div>
-          <JoditEditor
-            value={editorContent}
-            onChange={(newContent) => setEditorContent(newContent)}
-          />
           <JoditEditor
             value={editorContent}
             onChange={(newContent) => setEditorContent(newContent)}
@@ -74,19 +65,16 @@ const TestimonialsT = () => {
                 <th className="p-4 text-left">Title</th>
                 <th className="p-4 text-left">Subtitle</th>
                 <th className="p-4 text-left">Description</th>
-                <th className="p-4 text-left">Cursive Description</th>
-
                 <th className="p-4 text-center">Actions</th>
                 <th className="p-4 text-center">Preview</th>
               </tr>
             </thead>
             <tbody>
-              {testimonialstData.map((val, index) => (
+              {contactustData.map((val, index) => (
                 <tr key={index} className="border-b">
                   <td className="p-4">{val.title}</td>
                   <td className="p-4">{val.subtitle}</td>
                   <td className="p-4">{val.description}</td>
-                  <td className="p-4">{val.description2}</td>
 
                   <td className="p-4 grid gap-4 ">
                     <button
@@ -161,11 +149,6 @@ const TestimonialsT = () => {
                     className="border p-2 w-full rounded-md"
                     placeholder="Description"
                   />
-                  <input
-                    type="text"
-                    className="border p-2 w-full rounded-md"
-                    placeholder="Cursive Description"
-                  />
                 </div>
                 <div className="flex items-center  gap-4">
                   <button className="px-6 py-2 bg-[#415FF2] text-white rounded-md hover:bg-blue-600">
@@ -187,17 +170,10 @@ const TestimonialsT = () => {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
                 <h2 className="text-xl font-semibold ">
-                  {testimonialstData[previewIndex].title}
+                  {contactustData[previewIndex].title}
                 </h2>
-                <h2 className=" ">
-                  {testimonialstData[previewIndex].subtitle}
-                </h2>
-                <p className=" ">
-                  {testimonialstData[previewIndex].description}
-                </p>
-                <p className=" ">
-                  {testimonialstData[previewIndex].description2}
-                </p>
+                <h2 className=" ">{contactustData[previewIndex].subtitle}</h2>
+                <p className=" ">{contactustData[previewIndex].description}</p>
 
                 <button
                   onClick={() => setPreviewIndex(null)} // Close modal
@@ -214,4 +190,4 @@ const TestimonialsT = () => {
   );
 };
 
-export default TestimonialsT;
+export default ContactUsT;

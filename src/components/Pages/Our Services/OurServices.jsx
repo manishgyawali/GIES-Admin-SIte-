@@ -35,7 +35,7 @@ const OurServices = () => {
 
   const truncateDescription = (text, maxLength) =>
     text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
-  
+
   const [previewIndex, setPreviewIndex] = useState(null);
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
@@ -107,9 +107,7 @@ const OurServices = () => {
                 {servicesData.map((service, index) => (
                   <tr key={index} className="border-b">
                     <td className="p-4">{service.title}</td>
-                    <td
-                      className="px-4 py-2"
-                    >
+                    <td className="px-4 py-2">
                       {truncateDescription(service.description, 80)}
                     </td>{" "}
                     <td className="p-4">{service.btntext}</td>

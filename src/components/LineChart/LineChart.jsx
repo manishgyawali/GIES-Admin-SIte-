@@ -1,56 +1,71 @@
-import React from "react";
-import CanvasJSReact from "@canvasjs/react-charts";
-
-const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-const LineChart = () => {
-  const options = {
-    animationEnabled: true,
-    title: {
-      text: "Monthly Booking - 2024",
-      fontSize: 20,
-      padding: 10, // Padding between the title and the chart
-    },
-    axisX: {
-      valueFormatString: "MMM",
-      labelFontSize: 14,
-    },
-    axisY: {
-      title: "Number of Bookings",
-      titleFontSize: 16,
-      labelFontSize: 14,
-      prefix: "",
-      padding: 10, // Padding between Y-axis title and chart
-      gridThickness: 0, // Remove horizontal grid lines
-    },
-    data: [
-      {
-        yValueFormatString: "#,###",
-        xValueFormatString: "MMMM",
-        type: "spline",
-        dataPoints: [
-          { x: new Date(2024, 0), y: 15 },
-          { x: new Date(2024, 1), y: 32 },
-          { x: new Date(2024, 2), y: 44 },
-          { x: new Date(2024, 3), y: 90 },
-          { x: new Date(2024, 4), y: 20 },
-          { x: new Date(2024, 5), y: 69 },
-          { x: new Date(2024, 6), y: 64 },
-          { x: new Date(2024, 7), y: 70 },
-          { x: new Date(2024, 8), y: 53 },
-          { x: new Date(2024, 9), y: 23 },
-          { x: new Date(2024, 10), y: 90 },
-          { x: new Date(2024, 11), y: 45 },
-        ],
+import React, { Component } from 'react';
+import CanvasJSReact from '@canvasjs/react-charts';
+//var CanvasJSReact = require('@canvasjs/react-charts');
+ 
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}, {x: 5, y: 17},{x: 6, y: 10}, {x: 7, y: 13}, {x: 8, y: 18}, {x: 9, y: 20}, {x: 10, y: 17}];   //dataPoints.
+var xVal = dps.length + 1;
+var yVal = 15;
+var updateInterval = 2000;
+class LineChart extends Component {
+	constructor() {
+		super();
+		this.updateChart = this.updateChart.bind(this);
+	}
+	componentDidMount() {
+		setInterval(this.updateChart, updateInterval);
+	}
+	updateChart() {
+		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+		dps.push({x: xVal,y: yVal});
+		xVal++;
+		if (dps.length >  10 ) {
+			dps.shift();
+		}
+		this.chart.render();
+	}
+	render() {
+		const options = {
+			title :{
+				text: ""
+			},
+			data: [{
+				type: "line",
+				dataPoints : dps
+			}],
+    
+      axisX: {
+        gridThickness: 0, // Removes horizontal grid lines
       },
-    ],
-  };
-
-  return (
-    <div>
-      <CanvasJSChart options={options} />
-    </div>
-  );
-};
-
-export default LineChart;
+      axisY: {
+        gridThickness: 0, // Removes vertical grid lines
+      },
+      data: [
+        {
+          type: "line",
+          dataPoints: dps,
+          lineColor: "blue", // Blue main data line
+          lineThickness: 3, // Makes line more visible
+          markerType: "circle",
+          markerSize: 8,
+          markerBorderColor: "blue", // Border color for points
+          markerBorderThickness: 3,
+          bevelEnabled: true, // Enables shadow effect
+          shadowColor: "rgba(0, 0, 255, 0.5)", // Blue shadow
+          shadowBlur: 10,
+          shadowOffsetX: 2,
+          shadowOffsetY: 2,
+        },]
+		}
+		return (
+		<div>
+			<CanvasJSChart options = {options}
+				 onRef={ref => this.chart = ref}
+			/>
+			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+		</div>
+		);
+	}
+}
+export default LineChart; 

@@ -3,24 +3,22 @@ import { IoPencil, IoTrash } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
 import JoditEditor from "jodit-react";
 
-const AboutUsT = () => {
+const ContactInquiryT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(null);
   const [editorContent, setEditorContent] = useState("");
 
-  const aboutustData = [
+  const contactusData = [
     {
-      title: "About Us",
-      subtitle: "Get Know About Us",
-      description:
-        "We offer comprehensive preparation courses for globally recognized language and academic tests. Get the support you need to achieve topscores and unlock international opportunities.",
+      title: "Contact us",
+      subtitle: "Our friendly team would love to hear from you.?",
     },
   ];
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
       <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
-        About Us Title
+        Contact Inquiry Title
       </h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
@@ -38,10 +36,6 @@ const AboutUsT = () => {
               className="p-2 border rounded w-full"
             />
           </div>
-          <JoditEditor
-            value={editorContent}
-            onChange={(newContent) => setEditorContent(newContent)}
-          />
         </div>
         <button className="px-4 mt-4 py-2 bg-[#415FF2] text-white rounded-md">
           Add Title{" "}
@@ -64,20 +58,18 @@ const AboutUsT = () => {
         <div className=" md:w-11/12 mx-auto">
           <table className="w-full bg-white rounded shadow ">
             <thead>
-              <tr className="bg-gray-200 font-semibold">
+              <tr className="bg-gray-200  font-semibold">
                 <th className="p-4 text-left">Title</th>
                 <th className="p-4 text-left">Subtitle</th>
-                <th className="p-4 text-left">Description</th>
                 <th className="p-4 text-center">Actions</th>
-                <th className="p-4 text-center">Preview</th>
+                <th className="p-4 ">Preview</th>
               </tr>
             </thead>
             <tbody>
-              {aboutustData.map((val, index) => (
+              {contactusData.map((val, index) => (
                 <tr key={index} className="border-b">
                   <td className="p-4">{val.title}</td>
                   <td className="p-4">{val.subtitle}</td>
-                  <td className="p-4">{val.description}</td>
 
                   <td className="p-4 grid gap-4 ">
                     <button
@@ -147,11 +139,6 @@ const AboutUsT = () => {
                     className="border p-2 w-full rounded-md"
                     placeholder="Enter Subtitle"
                   />
-                  <input
-                    type="text"
-                    className="border p-2 w-full rounded-md"
-                    placeholder="Description"
-                  />
                 </div>
                 <div className="flex items-center  gap-4">
                   <button className="px-6 py-2 bg-[#415FF2] text-white rounded-md hover:bg-blue-600">
@@ -171,12 +158,11 @@ const AboutUsT = () => {
           {/* Preview Modal */}
           {previewIndex !== null && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+              <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-[500px] transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
                 <h2 className="text-xl font-semibold ">
-                  {aboutustData[previewIndex].title}
+                  {contactusData[previewIndex].title}
                 </h2>
-                <h2 className=" ">{aboutustData[previewIndex].subtitle}</h2>
-                <p className=" ">{aboutustData[previewIndex].description}</p>
+                <h2 className=" ">{contactusData[previewIndex].subtitle}</h2>
 
                 <button
                   onClick={() => setPreviewIndex(null)} // Close modal
@@ -193,4 +179,4 @@ const AboutUsT = () => {
   );
 };
 
-export default AboutUsT;
+export default ContactInquiryT;

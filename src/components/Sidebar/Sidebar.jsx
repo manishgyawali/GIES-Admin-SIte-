@@ -76,6 +76,12 @@ const Sidebar = () => {
         { title: "About Us", path: "/aboutust" },
         { title: "Booking Inquiry", path: "/bookinginquiryt" },
         { title: "Gallery", path: "/galleryt" },
+        { title: "Our Mission", path: "/ourmissiont" },
+        { title: "Our Vision", path: "/ourvisiont" },
+        { title: "Contact Us", path: "/contactust" },
+        { title: "Contact Inquiry", path: "/contactinquiryt" },
+        { title: "Carrer Opportunities", path: "/carreropportunitiest" },
+        { title: "Events", path: "/eventst" },
       ],
     },
   ];
@@ -99,7 +105,7 @@ const Sidebar = () => {
                   ? setShowDropdown(showDropdown === index ? null : index)
                   : null
               }
-              className={`flex items-center gap-4 text-gray-500 hover:text-[#415FF2] cursor-pointer ${
+              className={`flex items-center gap-4 text-gray-500 hover:text-[#415FF2] hover:bg-gray-100 rounded-md d cursor-pointer ${
                 item.subdata ? "justify-between" : ""
               }`}
             >

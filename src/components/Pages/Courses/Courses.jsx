@@ -61,6 +61,8 @@ const Courses = () => {
     text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
+  const [previewIndex, setPreviewIndex] = useState(null);
+
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
       <div className="flex items-center justify-between w-11/12 mx-auto">
@@ -87,18 +89,18 @@ const Courses = () => {
             placeholder="Title"
             className="p-2 border text-sm rounded w-full"
           />
-           <input
-          type="text"
-          name="name"
-          placeholder="Box Text"
-          className="p-2 border text-sm rounded w-full"
-        />
+          <input
+            type="text"
+            name="name"
+            placeholder="Box Text"
+            className="p-2 border text-sm rounded w-full"
+          />
         </div>
         <JoditEditor
           value={editorContent}
           onChange={(newContent) => setEditorContent(newContent)}
         />
-       
+
         <div>
           <button className="px-4 py-2 bg-[#415FF2] text-white rounded-md">
             Add Course{" "}
@@ -107,7 +109,7 @@ const Courses = () => {
       </div>
       {/* Courses Table */}
       <div className="bg-white flex flex-col gap-4 border rounded w-11/12 mx-auto p-6  shadow-md">
-        <div className="flex items-center  justify-between w-11/12 mx-auto">
+        <div className="flex items-center  justify-between ">
           <h1 className="text-lg font-semibold ">Manage Data</h1>
           {/* search section  */}
           <div className="relative flex justify-center flex-col items-center">
@@ -121,8 +123,8 @@ const Courses = () => {
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto bg-white shadow-md rounded-md ">
-          <table className="w-full text-left border-collapse">
+        <div className="">
+          <table className="w-full bg-white rounded shadow">
             <thead>
               <tr className="bg-gray-100 text-gray-700 uppercase text-sm">
                 <th className="px-4 py-2">Cover Image</th>
@@ -131,6 +133,7 @@ const Courses = () => {
                 <th className="px-4 py-2">Description</th>
                 <th className="px-4 py-2">BoxText</th>
                 <th className="px-4 py-2 text-center">Actions</th>
+                <th className="px-4 py-2 text-center">Preview</th>
               </tr>
             </thead>
             <tbody>
@@ -161,7 +164,7 @@ const Courses = () => {
                   </td>
                   <td className="px-4 py-2">{val.boxtext}</td>
                   {/* Actions */}
-                  <td className="px-4 py-2 text-center flex flex-col justify-center gap-2">
+                  <td className="px-4 py-2 text-center flex flex-col  justify-center gap-2">
                     <button
                       onClick={() => setEditIndex(index)}
                       className="px-4 py-2 bg-yellow-400 text-white rounded-md flex items-center gap-2"
@@ -173,6 +176,15 @@ const Courses = () => {
                       className="px-4 py-2 bg-red-500 text-white rounded-md flex items-center gap-2"
                     >
                       <IoTrash /> Delete
+                    </button>
+                  </td>
+                  <td className="p-4">
+                    {" "}
+                    <button
+                      onClick={() => setPreviewIndex(index)} // Open modal
+                      className="px-4 py-1 bg-blue-500 text-white rounded-md"
+                    >
+                      Preview
                     </button>
                   </td>
                 </tr>
@@ -192,7 +204,10 @@ const Courses = () => {
                 <button className="px-8 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                   Yes
                 </button>
-                <button className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400">
+                <button
+                  onClick={() => setDeleteIndex(null)}
+                  className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+                >
                   Cancel
                 </button>
               </div>
@@ -203,28 +218,62 @@ const Courses = () => {
         {/* popup for edit button  */}
         {editIndex && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white px-12 py-8 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
-              <h2 className="font-medium text-lg mb-4">Edit Courses</h2>
-              <div className="grid gap-4 mb-4">
+            <div className="bg-white px-8 py-6 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+              <h2 className="font-medium text-lg mb-6 ">Edit Data</h2>
+              <div className="grid gap-4 mb-6">
+                <input type="file" className="p-2 border rounded w-full" />
                 <input
                   type="text"
-                  name="name"
-                  placeholder="Course Name"
-                  className="p-2 border text-sm rounded w-full"
+                  placeholder="Title"
+                  className="p-3 border rounded w-full"
                 />
                 <input
-                  type="file"
-                  accept="image/*"
-                  className="p-2 border text-sm rounded w-full"
-                />{" "}
-                <textarea
-                  name="description"
-                  placeholder="Course Description"
-                  className="p-2 border text-sm rounded w-full sm:col-span-2"
-                ></textarea>
+                  type="text"
+                  placeholder="Description"
+                  className="p-3 border rounded w-full"
+                />
               </div>
-              <button className="mt-4 px-4 py-2 bg-[#415FF2] text-white rounded-md">
-                Save Changes{" "}
+              <div className="flex items-center  gap-4">
+                <button className="px-6 py-2 bg-[#415FF2] text-white rounded-md hover:bg-blue-600">
+                  Save Changes
+                </button>
+                <button
+                  onClick={() => setEditIndex(null)}
+                  className="px-6 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Preview Modal */}
+        {previewIndex !== null && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white px-6 py-4 flex flex-col gap-3 rounded-lg w-[700px] transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+              <img
+                src={coursesData[previewIndex].image}
+                alt={coursesData[previewIndex].title}
+                className="h-44 w-44  rounded "
+              />
+              <h2 className="text-xl font-bold ">
+                {coursesData[previewIndex].name}
+              </h2>
+
+              <h2 className="font-semibold ">
+                {coursesData[previewIndex].title}
+              </h2>
+
+              <p className="text-sm text-gray-700">
+                {coursesData[previewIndex].description}
+              </p>
+              <h2 className=" ">{coursesData[previewIndex].boxtext}</h2>
+              <button
+                onClick={() => setPreviewIndex(null)} // Close modal
+                className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+              >
+                Close
               </button>
             </div>
           </div>

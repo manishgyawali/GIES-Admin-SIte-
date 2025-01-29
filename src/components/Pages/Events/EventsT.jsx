@@ -3,24 +3,24 @@ import { IoPencil, IoTrash } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
 import JoditEditor from "jodit-react";
 
-const AboutUsT = () => {
+const EventsT = () => {
   const [deleteIndex, setDeleteIndex] = useState(false);
   const [editIndex, setEditIndex] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(null);
   const [editorContent, setEditorContent] = useState("");
 
-  const aboutustData = [
+  const eventstData = [
     {
-      title: "About Us",
-      subtitle: "Get Know About Us",
+      title: "Events and updates",
+      subtitle: "Events",
       description:
-        "We offer comprehensive preparation courses for globally recognized language and academic tests. Get the support you need to achieve topscores and unlock international opportunities.",
+        "News and tips on visa policies, test prep, and study abroad.",
     },
   ];
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
       <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
-        About Us Title
+        Destinations Title
       </h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
@@ -73,7 +73,7 @@ const AboutUsT = () => {
               </tr>
             </thead>
             <tbody>
-              {aboutustData.map((val, index) => (
+              {eventstData.map((val, index) => (
                 <tr key={index} className="border-b">
                   <td className="p-4">{val.title}</td>
                   <td className="p-4">{val.subtitle}</td>
@@ -173,10 +173,10 @@ const AboutUsT = () => {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
                 <h2 className="text-xl font-semibold ">
-                  {aboutustData[previewIndex].title}
+                  {eventstData[previewIndex].title}
                 </h2>
-                <h2 className=" ">{aboutustData[previewIndex].subtitle}</h2>
-                <p className=" ">{aboutustData[previewIndex].description}</p>
+                <h2 className=" ">{eventstData[previewIndex].subtitle}</h2>
+                <p className=" ">{eventstData[previewIndex].description}</p>
 
                 <button
                   onClick={() => setPreviewIndex(null)} // Close modal
@@ -193,4 +193,4 @@ const AboutUsT = () => {
   );
 };
 
-export default AboutUsT;
+export default EventsT;

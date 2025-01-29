@@ -28,13 +28,19 @@ import Dashboard from "./components/Pages/Dashboard/Dashboard";
 import WhyusT from "./components/Pages/Whyus/WhyusT";
 import CoursesT from "./components/Pages/Courses/CoursesT";
 import OurTeamT from "./components/Pages/OurTeam/OurTeamT";
-import TestimonialsT from './components/Pages/Testimonials/TestimonialsT';
+import TestimonialsT from "./components/Pages/Testimonials/TestimonialsT";
 import OurServicesT from "./components/Pages/Our Services/OurServicesT";
 import ArticlesT from "./components/Pages/Articles/ArticlesT";
-import FrequentlyAQT from './components/Pages/FrequentlyAQ/FrequentlyAQT';
+import FrequentlyAQT from "./components/Pages/FrequentlyAQ/FrequentlyAQT";
 import AboutUsT from "./components/Pages/AboutUs/AboutUsT";
 import BookingInquiryT from "./components/Pages/BookingInquiry/BookingInquiryT";
 import GalleryT from "./components/Pages/Gallery/GalleryT";
+import OurMissionT from "./components/Pages/AboutUs/OurMissionT";
+import OurVisionT from "./components/Pages/AboutUs/OurVisionT";
+import ContactUsT from "./components/Pages/ContactUs/ContactUsT";
+import ContactInquiryT from "./components/Pages/ContactInquiry/ContactInquiryT";
+import CarrerOpportunitiesT from "./components/Pages/CarrerOpportunities/CarrerOpportunitiesT";
+import EventsT from "./components/Pages/Events/EventsT";
 
 function App() {
   return (
@@ -54,7 +60,7 @@ function App() {
             {/* Main Content */}
             <div className="lg:flex-1 absolute  w-full  top-36 px-8 scroll overflow-scroll">
               <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/banner" element={<Banner />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/destinations" element={<Destinations />} />
@@ -90,10 +96,17 @@ function App() {
                 <Route path="/aboutust" element={<AboutUsT />} />
                 <Route path="/bookinginquiryt" element={<BookingInquiryT />} />
                 <Route path="/galleryt" element={<GalleryT />} />
-
-
+                <Route path="/ourmissiont" element={<OurMissionT />} />
+                <Route path="/ourvisiont" element={<OurVisionT />} />
+                <Route path="/contactust" element={<ContactUsT />} />
+                <Route path="/contactinquiryt" element={<ContactInquiryT />} />
+                <Route
+                  path="/carreropportunitiest"
+                  element={<CarrerOpportunitiesT />}
+                />
+                <Route path="/eventst" element={<EventsT />} />
               </Routes>
-              <Footer className="" />
+              <Footer />
             </div>
           </div>
         </div>

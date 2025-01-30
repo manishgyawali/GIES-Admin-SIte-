@@ -284,7 +284,7 @@ const AdminTestimonials = () => {
         {/* Preview Modal */}
         {previewIndex !== null && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white flex flex-col p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+            <div className="bg-white flex flex-col p-6 rounded-lg w-[500px] transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
               {/* Main Cover Image */}
               <img
                 src={articlesData[previewIndex].image}
@@ -298,12 +298,9 @@ const AdminTestimonials = () => {
               </h2>
 
               {/* Event Date */}
-              <h2 className="text-xl font-semibold mb-3">
+              <h2 className="  mb-3">
                 {articlesData[previewIndex].date}
               </h2>
-
-              {/* Event Description */}
-              <h2 className="mb-3">{articlesData[previewIndex].description}</h2>
 
               {/* Additional Images */}
               <div className="flex gap-2 flex-wrap">
@@ -316,6 +313,9 @@ const AdminTestimonials = () => {
                   />
                 ))}
               </div>
+
+              {/* Event Description */}
+              <h2 className="mb-3">{articlesData[previewIndex].description}</h2>
 
               {/* Close Button */}
               <button

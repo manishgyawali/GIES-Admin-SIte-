@@ -60,8 +60,8 @@ const Destinations = () => {
             <table className="w-full bg-white rounded shadow">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="p-4 text-left">Country</th>
                   <th className="p-4 text-left">Image</th>
+                  <th className="p-4 text-left">Country</th>
                   <th className="p-4 text-center">Actions</th>
                   <th className="p-4 text-center">Preview</th>
                 </tr>
@@ -69,7 +69,6 @@ const Destinations = () => {
               <tbody>
                 {countryData.map((country, index) => (
                   <tr key={index} className="border-b">
-                    <td className="p-4">{country.name}</td>
                     <td className="p-4">
                       <img
                         src={country.image}
@@ -77,6 +76,7 @@ const Destinations = () => {
                         className="h-12 w-12 rounded"
                       />
                     </td>
+                    <td className="p-4">{country.name}</td>
 
                     <td className="p-4  grid items-center justify-center gap-4">
                       <button
@@ -138,14 +138,14 @@ const Destinations = () => {
                     <h2 className="font-medium text-lg mb-6 ">Edit Data</h2>
                     <div className="grid gap-4 mb-6">
                       <input
-                        type="text"
-                        name="name"
-                        placeholder="Country Name"
+                        type="file"
+                        name="image"
                         className="p-2 border text-sm rounded w-full"
                       />
                       <input
-                        type="file"
-                        name="image"
+                        type="text"
+                        name="name"
+                        placeholder="Country Name"
                         className="p-2 border text-sm rounded w-full"
                       />
                     </div>
@@ -167,11 +167,11 @@ const Destinations = () => {
               {/* Preview Modal */}
               {previewIndex !== null && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                  <div className="bg-white flex flex-col items-center  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+                  <div className="bg-white   w-[500px]  p-6 rounded-lg  transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
                     <img
                       src={countryData[previewIndex].image}
                       alt={countryData[previewIndex].title}
-                      className="h-24 w-24 mb-4 rounded mx-auto"
+                      className=" mb-4 rounded w-[200px]"
                     />
                     <h2 className="text-xl font-bold ">
                       {countryData[previewIndex].name}
@@ -179,7 +179,7 @@ const Destinations = () => {
 
                     <button
                       onClick={() => setPreviewIndex(null)} // Close modal
-                      className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+                      className="mt-6 px-6 py-2 bg-red-500 text-white rounded-md"
                     >
                       Close
                     </button>

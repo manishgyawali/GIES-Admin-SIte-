@@ -180,7 +180,10 @@ const OurTeam = () => {
               <button className="px-8 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                 Yes
               </button>
-              <button className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400">
+              <button
+                onClick={() => setDeleteIndex(null)}
+                className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+              >
                 Cancel
               </button>
             </div>
@@ -191,9 +194,9 @@ const OurTeam = () => {
       {/* popup for edit button  */}
       {editIndex && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white px-12 py-8 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
-            <h2 className="font-medium text-lg mb-4">Edit Courses</h2>
-            <div className="grid gap-4 mb-4">
+          <div className="bg-white px-8 py-6 rounded shadow-md max-w-sm w-full transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+            <h2 className="font-medium text-lg mb-6 ">Edit Data</h2>
+            <div className="grid gap-4 mb-6">
               <input type="file" className="p-2 border rounded w-full" />
               <input
                 type="text"
@@ -205,15 +208,25 @@ const OurTeam = () => {
                 placeholder="Position"
                 className="p-2 border rounded w-full"
               />
+            </div>
+            <div className="flex gap-4 items-center">
               <input
                 type="text"
                 placeholder="Description"
                 className="p-2 border rounded w-full"
               />
             </div>
-            <button className="mt-4 px-4 py-2 bg-[#415FF2] text-white rounded-md">
-              Save Changes{" "}
-            </button>
+            <div className="flex items-center mt-4 gap-4">
+              <button className="px-6 py-2 bg-[#415FF2] text-white rounded-md hover:bg-blue-600">
+                Save Changes
+              </button>
+              <button
+                onClick={() => setEditIndex(null)}
+                className="px-6 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}

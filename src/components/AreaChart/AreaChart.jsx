@@ -23,7 +23,7 @@ class AreaChart extends Component {
         {
           type: "area",
           xValueFormatString: "YYYY",
-          yValueFormatString: "#,##0.## Million",
+          yValueFormatString: "#,##0.## ",
           lineColor: "#F7B924",
           color: "#FDF1D3",
           markerBorderColor: "#F7B924", // Custom color

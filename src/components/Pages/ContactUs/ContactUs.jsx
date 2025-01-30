@@ -211,11 +211,11 @@ const ContactUs = () => {
             {/* Preview Modal */}
             {previewIndex !== null && (
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+                <div className="bg-white flex flex-col gap-4  p-6 rounded-lg w-[500px] transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
                   <img
                     src={contactDetails[previewIndex].icon}
                     alt={contactDetails[previewIndex].title}
-                    className="p-2 w-24 h-24 rounded-lg object-cover  bg-[#8C9FFD]"
+                    className="p-2 w-[200px] rounded-lg object-cover  bg-[#8C9FFD]"
                   />
 
                   <h2 className="text-xl font-semibold ">
@@ -228,7 +228,7 @@ const ContactUs = () => {
 
                   <button
                     onClick={() => setPreviewIndex(null)} // Close modal
-                    className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+                    className=" px-4 py-2 bg-red-500 text-white rounded-md"
                   >
                     Close
                   </button>

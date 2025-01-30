@@ -12,9 +12,9 @@ const VisaDestination = () => {
         "Student visas, work visas, and visitor visas for Australia. Start your journey down under!",
 
       images: [
-        "/Images/blogimg1.png",
-        "/Images/blogimg2.png",
-        "/Images/event.png",
+        "/Images/australia1.png",
+        "/Images/australia2.png",
+        "/Images/australia2.png",
       ],
       title: "Visa For Australia",
     },
@@ -309,10 +309,6 @@ const VisaDestination = () => {
               <h2 className="text-xl font-semibold ">
                 {visaData[previewIndex].countryvisa}
               </h2>
-              <h2 className=" font-semibold ">
-                {visaData[previewIndex].title}
-              </h2>
-              <p className=" ">{visaData[previewIndex].description}</p>
               <div className="flex gap-2 flex-wrap">
                 {visaData[previewIndex].images.map((img, idx) => (
                   <img
@@ -323,6 +319,11 @@ const VisaDestination = () => {
                   />
                 ))}
               </div>
+              <h2 className=" font-semibold ">
+                {visaData[previewIndex].title}
+              </h2>
+              <p className=" ">{visaData[previewIndex].description}</p>
+
               <button
                 onClick={() => setPreviewIndex(null)} // Close modal
                 className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"

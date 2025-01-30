@@ -60,7 +60,7 @@ const TakeAction = () => {
       </div>
 
       {/* Data Table */}
-      <div className="bg-white  border rounded py-6  shadow-md">
+      <div className="bg-white w-11/12 mx-auto  border rounded py-6  shadow-md">
         <div className="flex items-center mb-4 justify-between w-11/12 mx-auto">
           <h1 className="text-lg font-semibold ">Manage Data</h1>
           {/* search section  */}
@@ -74,7 +74,7 @@ const TakeAction = () => {
           </div>
         </div>
         <div className="w-11/12 mx-auto">
-          <table className="w-full bg-white border rounded shadow">
+          <table className=" bg-white border rounded shadow">
             <thead className="bg-gray-200">
               <tr>
                 <th className="p-4 text-left">Image</th>
@@ -198,7 +198,7 @@ const TakeAction = () => {
       {/* Preview Modal */}
       {previewIndex !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white flex flex-col  gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
+          <div className="bg-white flex flex-col    p-6 rounded-lg w-[500px] transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
             <img
               src={takeactionData[previewIndex].image}
               alt={takeactionData[previewIndex].title}
@@ -208,7 +208,7 @@ const TakeAction = () => {
             <h2 className="text-xl font-semibold mb-3">
               {takeactionData[previewIndex].title}
             </h2>
-            <h2 className="text-xl font-semibold mb-3">
+            <h2 className=" font-semibold mb-3">
               {takeactionData[previewIndex].subtitle}
             </h2>
             <p className="text-sm text-gray-700">

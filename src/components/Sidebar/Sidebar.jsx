@@ -11,10 +11,10 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const sidebarData = [
-    { title: "Dashboard", icon: <IoHomeOutline />, path: "/dashboard" },
+    { title: "Dashboard", icon: <IoHomeOutline />, path: "/" },
     { title: "Banner", icon: <CiViewBoard />, path: "/banner" },
-    { title: "About Us", icon: <IoPersonCircleOutline />, path: "/aboutus" },
     { title: "Destinations", icon: <PiMapPinLine />, path: "/destinations" },
+    { title: "About Us", icon: <IoPersonCircleOutline />, path: "/aboutus" },
     { title: "Why Us", icon: <BsCardChecklist />, path: "/whyus" },
     { title: "Our Services", icon: <FaHandsHelping />, path: "/ourservices" },
     { title: "Courses", icon: <PiCertificate />, path: "/courses" },
@@ -96,7 +96,7 @@ const Sidebar = () => {
       </div>
 
       {/* Sidebar Menu */}
-      <div className="flex flex-col pb-10 pl-10 gap-6">
+      <div className="flex flex-col font-ubuntu pb-10 pl-10 gap-6">
         {sidebarData.map((item, index) => (
           <div key={index} className="flex flex-col">
             <div
@@ -105,7 +105,7 @@ const Sidebar = () => {
                   ? setShowDropdown(showDropdown === index ? null : index)
                   : null
               }
-              className={`flex items-center gap-4 text-gray-500 hover:text-[#415FF2] hover:bg-gray-100 rounded-md d cursor-pointer ${
+              className={`flex items-center gap-4  hover:text-[#415FF2] hover:bg-gray-100 rounded-md d cursor-pointer ${
                 item.subdata ? "justify-between" : ""
               }`}
             >
@@ -114,7 +114,7 @@ const Sidebar = () => {
 
               {/* Title */}
               <Link to={item.path} className="flex-1">
-                <h1 className="text-lg  tracking-wider">{item.title}</h1>
+                <h1 className="tracking-wider  ">{item.title}</h1>
               </Link>
 
               {/* Dropdown Icon */}
@@ -124,7 +124,7 @@ const Sidebar = () => {
                     showDropdown === index ? "rotate-180" : "rotate-0"
                   }`}
                 >
-                  <MdKeyboardArrowDown className="text-2xl" />
+                  <MdKeyboardArrowDown className="text-xl" />
                 </div>
               )}
             </div>
@@ -132,15 +132,15 @@ const Sidebar = () => {
             {/* Dropdown Submenu */}
             {item.subdata && (
               <div
-                className={`flex flex-col pl-16 mt-5 gap-4 text-gray-500 overflow-hidden transition-all duration-300 ${
-                  showDropdown === index ? "max-h-screen" : "max-h-0"
+                className={`flex flex-col pl-16 mt-5 gap-4 text-gray-600 font-ubuntu overflow-hidden transition-all duration-300 ${
+                  showDropdown === index ? "h-full" : "max-h-0"
                 }`}
               >
                 {item.subdata.map((subItem, subIndex) => (
                   <Link
                     key={subIndex}
                     to={subItem.path}
-                    className="hover:text-[#415FF2] text-lg transition-transform duration-300 ease-in-out hover:translate-x-4 tracking-wider"
+                    className="hover:text-[#415FF2]  transition-transform duration-300 ease-in-out hover:translate-x-4 tracking-wider"
                   >
                     {subItem.title}
                   </Link>

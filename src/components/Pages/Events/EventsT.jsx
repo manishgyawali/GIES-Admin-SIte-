@@ -19,9 +19,7 @@ const EventsT = () => {
   ];
   return (
     <div className="py-10 flex flex-col gap-6 bg-[#F9FAFB] rounded-2xl">
-      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">
-        Destinations Title
-      </h1>
+      <h1 className="text-2xl font-semibold w-11/12 mx-auto ">Events Title</h1>
       {/* Add/Edit Form */}
       <div className="bg-white border rounded w-11/12 mx-auto p-6  shadow-md">
         <h2 className="text-lg font-medium mb-4">Add Title Data </h2>

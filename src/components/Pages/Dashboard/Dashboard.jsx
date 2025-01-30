@@ -1,7 +1,7 @@
 import React from "react";
-import { FaCalendarAlt, FaBell, FaUserCircle } from "react-icons/fa";
+import { FaCalendarAlt, FaBell } from "react-icons/fa";
 import { FaArrowUp, FaClock, FaMapMarkerAlt } from "react-icons/fa";
-
+import { FaUserFriends, FaStamp, FaPlaneDeparture } from "react-icons/fa";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,11 +16,11 @@ import {
   RadialLinearScale,
 } from "chart.js";
 
-import { FaWallet, FaGraduationCap, FaChartBar, FaGlobe } from "react-icons/fa";
 import PieChart from "./../../PieChart/PieChart";
 import AreaChart from "./../../AreaChart/AreaChart";
 import BarChart from "./../../BarChart/BarChart";
 import Table from "../../GraphCharts/Table/Table";
+import { IoMdAdd } from "react-icons/io";
 
 ChartJS.register(
   CategoryScale,
@@ -95,8 +95,8 @@ const Dashboard = () => {
       value: "3500",
       change: "12.3%",
       changeType: "grow",
-      icon: <FaWallet className="text-yellow-600 text-3xl" />,
-      bgColor: "bg-yellow-100",
+      icon: <FaUserFriends className="text-yellow-50 text-2xl" />,
+      bgColor: "bg-[#F7B924]",
       textColor: "text-yellow-600",
     },
     {
@@ -105,18 +105,18 @@ const Dashboard = () => {
       value: "1.5K",
       change: "8.1%",
       changeType: "increase",
-      icon: <FaGraduationCap className="text-pink-600 text-3xl" />,
-      bgColor: "bg-pink-100",
+      icon: <FaStamp className="text-pink-50 text-2xl" />,
+      bgColor: "bg-[#DC3A61]",
       textColor: "text-pink-600",
     },
     {
       id: 3,
       title: "Top Destination",
-      value: "Canada",
+      value: "Australia",
       change: "Most Preferred",
       changeType: "neutral",
-      icon: <FaGlobe className="text-green-600 text-3xl" />,
-      bgColor: "bg-green-100",
+      icon: <FaPlaneDeparture className="text-green-50 text-2xl" />,
+      bgColor: "bg-[#4DC98A]",
       textColor: "text-green-600",
     },
   ];
@@ -126,20 +126,24 @@ const Dashboard = () => {
       {/* Dashboard Header */}
       <div className="flex items-center justify-between w-11/12 mx-auto">
         <h1 className="text-2xl font-semibold">Dashboard</h1>
+        <button className="px-3 py-2 bg-[#3AC47D] text-sm shadow-md flex gap-1 items-center justify-center rounded font-semibold mr-6 text-white ">
+          <IoMdAdd className="text-xl"/>
+          Create New{" "}
+        </button>
       </div>
 
       {/* Performance Metrics */}
-      <div className="bg-white shadow-md rounded-lg p-6 w-11/12 mx-auto">
+      <div className="bg-white shadow-lg rounded-lg p-6 w-11/12 mt-4 mx-auto">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl  text-gray-800">
             Consultancy Performance
           </h2>
-          <button className="px-4 py-1 border border-gray-400 rounded-lg text-sm text-gray-600 hover:bg-gray-100">
+          <button className="px-4 py-1 rounded text-sm border-2 border-gray-500">
             View All
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-3 py-7  gap-6">
           {data.map((item) => (
             <div key={item.id} className="flex items-center gap-4">
               <div className={`p-4 ${item.bgColor} rounded-full`}>
@@ -152,18 +156,26 @@ const Dashboard = () => {
                 </h1>
                 <p className={`text-sm ${item.textColor}`}>
                   {item.changeType === "grow" && (
-                    <span className="text-blue-500">▲ </span>
+                    <span className="text-[#415FF2]">▲ </span>
                   )}
                   {item.changeType === "increase" && (
                     <span className="text-green-500">▲ </span>
                   )}
-                  {item.changeType === "neutral" && <span>🔹 </span>}
+                  {item.changeType === "neutral" && (
+                    <span className="text-xl">🔹 </span>
+                  )}
                   {item.change}
                 </p>
               </div>
             </div>
           ))}
         </div>
+        <div className=" flex justify-center">
+          <button className="bg-[#415FF2] text-white py-2 px-6 rounded-full font-medium shadow-md hover:bg-blue-700 transition">
+            View Complete Report
+          </button>
+        </div>
+        
       </div>
 
       {/* Charts Section */}

@@ -14,10 +14,10 @@ class AreaChart extends Component {
       },
       axisY: {
         title: "",
-        gridThickness: 0, // Removes vertical grid lines
+        gridThickness: 0, 
       },
       axisX: {
-        gridThickness: 0, // Removes horizontal grid lines
+        gridThickness: 0, 
       },
       data: [
         {

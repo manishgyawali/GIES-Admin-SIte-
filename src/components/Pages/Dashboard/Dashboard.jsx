@@ -16,11 +16,12 @@ import {
   RadialLinearScale,
 } from "chart.js";
 
-import PieChart from "./../../PieChart/PieChart";
-import AreaChart from "./../../AreaChart/AreaChart";
-import BarChart from "./../../BarChart/BarChart";
-import Table from "../../GraphCharts/Table/Table";
+
 import { IoMdAdd } from "react-icons/io";
+import PieChart from './../../PieChart/PieChart';
+import AreaChart from './../../AreaChart/AreaChart';
+import BarChart from './../../BarChart/BarChart';
+import Table from './../../GraphCharts/Table/Table';
 
 ChartJS.register(
   CategoryScale,
@@ -127,7 +128,7 @@ const Dashboard = () => {
       <div className="flex items-center justify-between w-11/12 mx-auto">
         <h1 className="text-2xl font-semibold">Dashboard</h1>
         <button className="px-3 py-2 bg-[#3AC47D] text-sm shadow-md flex gap-1 items-center justify-center rounded font-semibold mr-6 text-white ">
-          <IoMdAdd className="text-xl"/>
+          <IoMdAdd className="text-xl" />
           Create New{" "}
         </button>
       </div>
@@ -135,9 +136,7 @@ const Dashboard = () => {
       {/* Performance Metrics */}
       <div className="bg-white shadow-lg rounded-lg p-6 w-11/12 mt-4 mx-auto">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl  text-gray-800">
-            Consultancy Performance
-          </h2>
+          <h2 className="text-xl  text-gray-800">Consultancy Performance</h2>
           <button className="px-4 py-1 rounded text-sm border-2 border-gray-500">
             View All
           </button>
@@ -175,7 +174,6 @@ const Dashboard = () => {
             View Complete Report
           </button>
         </div>
-        
       </div>
 
       {/* Charts Section */}

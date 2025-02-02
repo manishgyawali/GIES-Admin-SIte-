@@ -199,16 +199,16 @@ const OurServices = () => {
         {previewIndex !== null && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white flex flex-col  gap-4  p-6 rounded-lg w-96 transform transition-all duration-500 ease-out scale-90 opacity-0 animate-popup">
-              <h2 className="text-xl font-semibold mb-3">
+              <h2 className="text-xl font-semibold ">
                 {servicesData[previewIndex].title}
               </h2>
               <p className="text-sm text-gray-700">
                 {servicesData[previewIndex].description}
               </p>
-              <h2 className="  mb-3">{servicesData[previewIndex].btntext}</h2>
+              <h2 className="  ">{servicesData[previewIndex].btntext}</h2>
               <button
                 onClick={() => setPreviewIndex(null)} // Close modal
-                className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+                className=" px-4 py-2 bg-red-500 text-white rounded-md"
               >
                 Close
               </button>

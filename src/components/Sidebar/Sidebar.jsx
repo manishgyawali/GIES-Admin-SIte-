@@ -82,6 +82,15 @@ const Sidebar = () => {
         { title: "Contact Inquiry", path: "/contactinquiryt" },
         { title: "Carrer Opportunities", path: "/carreropportunitiest" },
         { title: "Events", path: "/eventst" },
+        { title: "Visas Destinations", path: "/visasdestinationst" },
+        { title: "Country Details", path: "/countrydetailst" },
+        { title: "Course Details", path: "/coursedetailst" },
+        { title: "All Course", path: "/allcourset" },
+        { title: "Articles Details", path: "/articledetailst" },
+        { title: "Events Details", path: "/eventdetailst" },
+
+
+
       ],
     },
   ];

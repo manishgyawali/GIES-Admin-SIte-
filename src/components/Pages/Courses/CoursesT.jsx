@@ -182,7 +182,7 @@ const CoursesT = () => {
 
                 <button
                   onClick={() => setPreviewIndex(null)} // Close modal
-                  className="mt-6 px-4 py-2 bg-red-500 text-white rounded-md"
+                  className=" px-4 py-2 bg-red-500 text-white rounded-md"
                 >
                   Close
                 </button>

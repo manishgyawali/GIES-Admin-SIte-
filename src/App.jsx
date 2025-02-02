@@ -41,6 +41,12 @@ import ContactUsT from "./components/Pages/ContactUs/ContactUsT";
 import ContactInquiryT from "./components/Pages/ContactInquiry/ContactInquiryT";
 import CarrerOpportunitiesT from "./components/Pages/CarrerOpportunities/CarrerOpportunitiesT";
 import EventsT from "./components/Pages/Events/EventsT";
+import VisaDestinationsT from "./components/Pages/VisaDestinations/VisaDestinationsT";
+import CountryDetailsT from "./components/Pages/VisaDestinations/CountryDetailsT";
+import CourseDetailsT from "./components/Pages/Courses/CourseDetailsT";
+import AllCourseT from "./components/Pages/Courses/AllCourseT";
+import ArticleDetailsT from "./components/Pages/Articles/ArticleDetailsT";
+import EventDetailsT from "./components/Pages/Events/EventDetailsT";
 
 function App() {
   return (
@@ -105,6 +111,16 @@ function App() {
                   element={<CarrerOpportunitiesT />}
                 />
                 <Route path="/eventst" element={<EventsT />} />
+                <Route path="/visasdestinationst" element={<VisaDestinationsT />} />
+                <Route path="/countrydetailst" element={<CountryDetailsT />} />
+                <Route path="/coursedetailst" element={<CourseDetailsT />} />
+                <Route path="/allcourset" element={<AllCourseT />} />
+                <Route path="/articledetailst" element={<ArticleDetailsT />} />
+                <Route path="/eventdetailst" element={<EventDetailsT />} />
+
+
+
+
               </Routes>
               <Footer />
             </div>

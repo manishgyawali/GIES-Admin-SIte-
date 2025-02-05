@@ -16,12 +16,13 @@ import {
   RadialLinearScale,
 } from "chart.js";
 
-
 import { IoMdAdd } from "react-icons/io";
-import PieChart from './../../PieChart/PieChart';
-import AreaChart from './../../AreaChart/AreaChart';
-import BarChart from './../../BarChart/BarChart';
-import Table from './../../GraphCharts/Table/Table';
+import PieChart from "../../GraphCharts/PieChart/PieChart";
+import AreaChart from "../../GraphCharts/AreaChart/AreaChart";
+import BarChart from "../../GraphCharts/BarChart/BarChart";
+import Table from "./../../GraphCharts/Table/Table";
+import TrendsSummary from "../../GraphCharts/TrendsSummary/TrendsSummary";
+import UpcomingAppointments from "../../GraphCharts/UpcomingAppointments/UpcomingAppointments";
 
 ChartJS.register(
   CategoryScale,
@@ -36,37 +37,6 @@ ChartJS.register(
   RadialLinearScale
 );
 const Dashboard = () => {
-  const appointments = [
-    {
-      id: 1,
-      name: "John Doe",
-      country: "Canada",
-      date: "Feb 5, 2025",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      country: "USA",
-      date: "Feb 7, 2025",
-      image: "https://randomuser.me/api/portraits/women/45.jpg",
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      country: "Canada",
-      date: "Feb 5, 2025",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-    },
-    {
-      id: 4,
-      name: "Jane Smith",
-      country: "USA",
-      date: "Feb 7, 2025",
-      image: "https://randomuser.me/api/portraits/women/45.jpg",
-    },
-  ];
-
   const notifications = [
     {
       id: 1,
@@ -194,37 +164,8 @@ const Dashboard = () => {
           <h1 className="text-2xl font-semibold">Booking Trends</h1>
           <BarChart />
         </div>
-        <div className="w-4/12 shadow bg-white flex flex-col gap-5 rounded-lg py-6 px-6 border border-gray-200">
-          <h1 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-            📊 Trends Summary
-          </h1>
 
-          <div className="flex flex-col gap-4 text-gray-700">
-            <div className="flex items-center gap-3 p-3 bg-green-50 rounded-md">
-              <FaArrowUp className="text-green-500 text-lg" />
-              <p>
-                <span className="text-green-500 font-semibold">15%</span>{" "}
-                increase in bookings this month.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-md">
-              <FaClock className="text-blue-500 text-lg" />
-              <p>
-                Peak booking time: <span className="font-semibold">6-9 PM</span>
-                .
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 p-3 bg-yellow-50 rounded-md">
-              <FaMapMarkerAlt className="text-yellow-500 text-lg" />
-              <p>
-                Most popular destination:{" "}
-                <span className="font-semibold">Australia</span>.
-              </p>
-            </div>
-          </div>
-        </div>
+        <TrendsSummary />
       </div>
 
       {/* Recent Consultations Table */}
@@ -236,33 +177,8 @@ const Dashboard = () => {
       {/* Appointments Calendar & Notifications */}
       <div className="grid grid-cols-2 w-11/12 mx-auto gap-6">
         {/* Upcoming Appointments */}
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h1 className="text-xl font-semibold flex items-center gap-2">
-            <FaCalendarAlt className="text-green-500" /> Upcoming Appointments
-          </h1>
-          <div className="mt-4 space-y-3">
-            {appointments.map((appointment) => (
-              <div
-                key={appointment.id}
-                className="flex items-center gap-3 bg-gray-100 p-3 rounded-md hover:shadow-md transition"
-              >
-                <img
-                  src={appointment.image}
-                  alt={appointment.name}
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="text-gray-700 font-medium">
-                    {appointment.name}
-                  </p>
-                  <p className="text-gray-500 text-sm">
-                    {appointment.country} - {appointment.date}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
+        <UpcomingAppointments />
 
         {/* Notifications */}
         <div className="bg-white shadow-md rounded-lg p-6">

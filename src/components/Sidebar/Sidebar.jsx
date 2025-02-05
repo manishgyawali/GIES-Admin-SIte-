@@ -61,6 +61,9 @@ const Sidebar = () => {
       icon: <BsQuestionCircle />,
       path: "/frequentlyaq",
     },
+
+   
+
     {
       title: "Page Layout",
       icon: <CiViewBoard />,
@@ -89,8 +92,6 @@ const Sidebar = () => {
         { title: "Articles Details", path: "/articledetailst" },
         { title: "Events Details", path: "/eventdetailst" },
 
-
-
       ],
     },
   ];
@@ -98,7 +99,7 @@ const Sidebar = () => {
   const [showDropdown, setShowDropdown] = useState(null);
 
   return (
-    <div className="lg:flex hidden flex-col gap-8 ">
+    <div className="lg:flex sticky hidden flex-col gap-8 ">
       {/* Sidebar Header */}
       <div className="flex flex-col items-center justify-center py-8">
         <h1 className="text-[#415FF2] font-bold text-3xl">GIES.</h1>
@@ -141,7 +142,7 @@ const Sidebar = () => {
             {/* Dropdown Submenu */}
             {item.subdata && (
               <div
-                className={`flex flex-col pl-16 mt-5 gap-4 text-gray-600 font-ubuntu overflow-hidden transition-all duration-300 ${
+                className={`flex flex-col pl-12 mt-5 gap-4 text-gray-700 font-ubuntu overflow-hidden transition-all  duration-300 ${
                   showDropdown === index ? "h-full" : "max-h-0"
                 }`}
               >
@@ -149,7 +150,7 @@ const Sidebar = () => {
                   <Link
                     key={subIndex}
                     to={subItem.path}
-                    className="hover:text-[#415FF2]  transition-transform duration-300 ease-in-out hover:translate-x-4 tracking-wider"
+                    className="px-4 rounded hover:text-[#415FF2] hover:bg-gray-100  transition-transform duration-300 ease-in-out hover:translate-x-4 tracking-wider"
                   >
                     {subItem.title}
                   </Link>

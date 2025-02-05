@@ -48,18 +48,19 @@ import AllCourseT from "./components/Pages/Courses/AllCourseT";
 import ArticleDetailsT from "./components/Pages/Articles/ArticleDetailsT";
 import EventDetailsT from "./components/Pages/Events/EventDetailsT";
 
+
 function App() {
   return (
     <div>
       <Router>
         <div className="flex w-full h-screen">
           {/* Sidebar */}
-          <aside className="lg:w-[280px]  h-full shadow-sm scroll  overflow-y-scroll">
+          <aside className="lg:w-[280px] fixed   h-full shadow-sm scroll  overflow-y-scroll">
             <Sidebar />
           </aside>
 
           {/* Main Content */}
-          <div className="lg:flex-1 flex relative flex-col w-full h-full">
+          <div className="lg:flex-1 lg:ml-[280px] flex relative flex-col w-full h-full">
             {/* Navigation */}
             <Navigation className="relative" />
 
@@ -117,6 +118,8 @@ function App() {
                 <Route path="/allcourset" element={<AllCourseT />} />
                 <Route path="/articledetailst" element={<ArticleDetailsT />} />
                 <Route path="/eventdetailst" element={<EventDetailsT />} />
+
+                
 
 
 
